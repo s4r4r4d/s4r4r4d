@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 export default function LatestWork() {
   const projects = [
     {
@@ -22,18 +24,42 @@ export default function LatestWork() {
     },
   ];
 
+  // Simple fade-in animation
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section className="w-full border-t border-t-[#dddddd] bg-[#fafafa] py-26">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="flex items-center justify-center mb-12 gap-8">
+        <motion.div 
+          className="flex items-center justify-center mb-12 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInVariants}
+        >
           <div className="flex-1 h-px bg-gray-300"></div>
           <h2 className="text-center text-gray-500 text-sm tracking-widest whitespace-nowrap">
             SOME OF MY LATEST WORK
           </h2>
           <div className="flex-1 h-px bg-gray-300"></div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInVariants}
+        >
           {projects.map((x) => (
             <div
               key={x.id}
@@ -47,26 +73,26 @@ export default function LatestWork() {
                 />
               </div>
               <div className="p-6 bg-[#ffffff]">
-                <h3 className="text-lg  font-light text-[#353535] mb-2">
+                <h3 className="text-lg font-light text-[#353535] mb-2">
                   {x.title}
                 </h3>
                 <div className="flex items-center justify-center gap-2 group">
-  <p className="text-sm font-light text-[#747474]">{x.category}</p>
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    fill="none" 
-    viewBox="0 0 24 24" 
-    strokeWidth={2} 
-    stroke="currentColor" 
-    className="size-8 text-[#e4e4e4] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-  </svg>
-</div>
+                  <p className="text-sm font-light text-[#747474]">{x.category}</p>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    strokeWidth={2} 
+                    stroke="currentColor" 
+                    className="size-8 text-[#e4e4e4] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </div>
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

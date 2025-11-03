@@ -3,7 +3,7 @@ import { Poppins } from 'next/font/google';
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import LatestWork from "./components/LatestWork";
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sara Radojicic | Designer & Developer",
+  title: "Sara Radojicic | Frontend Developer",
 };
 
 export default function RootLayout({
@@ -24,9 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Navbar/>
+        <Navbar/>å
         {children}
-        <LatestWork/>
          <Footer/>
       </body>
     </html>

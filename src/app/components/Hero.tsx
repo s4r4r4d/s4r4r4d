@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 
 export default function Hero() {
   const leftHalfRef = useRef<HTMLDivElement>(null);
@@ -9,9 +10,30 @@ export default function Hero() {
   const coderTextRef = useRef<HTMLDivElement>(null);
   const designerImageRef = useRef<HTMLDivElement>(null);
   const coderImageRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Initial animation on mount - sweep from left to right
+    const animateInitial = async () => {
+      await controls.start({
+        clipPathProgress: 70,
+        transition: {
+          duration: 2,
+          ease: "easeInOut"
+        }
+      });
+      setHasAnimated(true);
+    };
+
+    animateInitial();
+  }, [controls]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      if (!hasAnimated) return; // Don't allow mouse control until initial animation is done
+
       const percentage = (e.clientX / window.innerWidth) * 100;
 
       if (leftHalfRef.current) {
@@ -37,87 +59,112 @@ export default function Hero() {
       if (coderImageRef.current) {
         coderImageRef.current.style.opacity = String(1 - percentage / 100);
       }
-       console.log(designerImageRef.current)
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [hasAnimated]);
 
   return (
-    <div className="flex flex-col pt-6 bg-white items-center justify-center w-full min-h-screen">
-
+    <motion.div 
+      className="flex flex-col bg-white items-center p-32 justify-center w-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="flex items-center justify-center relative">
 
-        <div ref={designerTextRef} className="text-center transition-opacity duration-100">
+        <motion.div 
+          ref={designerTextRef} 
+          className="text-center transition-opacity duration-100"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
           <h2 className="text-5xl font-semibold text-[#333333] mb-2">designer</h2>
-          <p className="text-[#333333] text-base max-w-xs">
+          <p className="text-[#333333] font-light text-base max-w-xs">
             Product designer specialising in UI design and design systems.
           </p>
-        </div>
+        </motion.div>
 
         {/* Center Image */}
-        <div className="relative w-150 h-150  rounded-lg z-10">
-          {/* Behind image - lower z-index */}
-          <div 
+        <div className="relative w-150 h-150 rounded-lg z-10">
+          {/* Behind image - designer work */}
+          <motion.div 
             ref={designerImageRef}
             className="absolute inset-0 transition-opacity duration-100 z-0"
             style={{ 
-            transform: 'translateX(-60px)',
-            width: '400px',  
-            height: '400px', 
-            top: '50%',      
-            left: '50%',    
-            marginTop: '-100px',  
-            marginLeft: '-250px'  
-        }}
-            
-            
+              width: '400px',  
+              height: '400px', 
+              top: '50%',      
+              left: '50%',    
+              marginTop: '-100px',  
+              marginLeft: '-250px'  
+            }}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 0.5, x: -60 }}
+            transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
           >
             <img
               src="/colours.png"
               alt="Designer work"
               className="w-full h-full object-cover rounded-lg"
             />
-          </div>
+          </motion.div>
 
-          <div
+          {/* Left half - colored portrait */}
+          <motion.div
             ref={leftHalfRef}
             className="absolute inset-0 w-full h-full z-20"
-            style={{
-              clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)',
-            }}
+            initial={{ clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)' }}
+            animate={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
+            transition={{ duration: 2, ease: "easeInOut" }}
           >
-            <img
+            <motion.img
               src="/portrait-colored-fixed.png"
               alt="Designer"
               className="w-full h-full object-cover"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
             />
-          </div>
+          </motion.div>
 
-          <div
+          {/* Right half - coder portrait */}
+          <motion.div
             ref={rightHalfRef}
             className="absolute inset-0 w-full h-full z-20"
-            style={{
-              clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)',
-            }}
+            initial={{ clipPath: 'polygon(0% 0, 0% 0, 0% 100%, 0% 100%)' }}
+            animate={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }}
+            transition={{ duration: 2, ease: "easeInOut" }}
           >
-            <img
+            <motion.img
               src="/sara.png"
               alt="Coder"
               className="w-full h-full object-cover"
               style={{ transform: 'translateY(-22px)' }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
             />
-          </div>
+          </motion.div>
         </div>
 
-        <div ref={coderTextRef} className="text-center transition-opacity duration-100">
-          <h2 className="text-5xl font-semibold text-[#333333] mb-2">&lt;developer&gt;</h2>
-          <p className="text-[#333333] text-base font-normal max-w-xs">
+        <motion.div 
+          ref={coderTextRef} 
+          className="text-center transition-opacity duration-100"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 0.5, x: 0 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <h2 className="text-5xl font-semibold text-[#333333] mb-2">
+            <span className="font-semibold">frontend<br/>developer</span> 
+          </h2>
+          <p className="text-[#333333] text-base font-light max-w-xs">
             Front end developer who writes clean, elegant and efficient code.
           </p>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
