@@ -5,6 +5,8 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import Chart from './Chart'; 
 import Experience from './Experience';
+import Skills from './Skills';
+import MoreAboutMe from './Information';
 
 export default function SimpleGallery() {
     const galleryImages = [
@@ -69,6 +71,8 @@ export default function SimpleGallery() {
         </div>
         <Chart/>
         <Experience/>
+        <Skills/>
+        <MoreAboutMe/>
     </div>
                    
     )

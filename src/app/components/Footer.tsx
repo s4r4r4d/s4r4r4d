@@ -4,11 +4,11 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#f5f5f5] border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-8">
-        {/* Footer Content */}
+  
         <div className="flex items-center justify-between mb-8">
           <p className="text-[#757575] font-light text-sm">© 2025 Sara Radojicic</p>
           
-          {/* Footer Links */}
+        
           <div className="flex gap-8">
             <a href="#about" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">about</a>
             <a href="#portfolio" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">portfolio</a>

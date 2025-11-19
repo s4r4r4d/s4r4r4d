@@ -14,8 +14,8 @@ export default function Navbar() {
         
         <div className="flex gap-8 items-center">
           <Link href="/about" className="hover:text-gray-300 transition">about</Link>
-          <a href="#portfolio" className="hover:text-gray-300 transition">portfolio</a>
-          <a href="#blog" className="hover:text-gray-300 transition">blog</a>
+          <Link href="/portfolio" className="hover:text-gray-300 transition">portfolio</Link>
+          <Link href="/more" className="hover:text-gray-300 transition">blog</Link>
           <Link href="/contact" className="hover:text-gray-300 transition">contact</Link>
         </div>
         
