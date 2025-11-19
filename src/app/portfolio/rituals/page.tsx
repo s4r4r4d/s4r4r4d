@@ -7,18 +7,30 @@ import 'swiper/css/navigation';
 import { Line } from 'recharts';
 import LineAnimation from '@/app/components/LineAnimation';
 import { Playfair_Display } from 'next/font/google';
+import { useState } from 'react';
 
-const playfair = Playfair_Display({ subsets: ['latin'],
-     weight: ['400', '700'],
-      style: ['italic'] });
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['italic'] 
+});
 
-export default function NoticeAi() {
+export default function Rituals() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const photos = [
     '/checklist.png',
     '/growth.png',
     '/leaves.png',
     '/transport.png',
-    
+  ];
+
+  const uiImages = [
+    { src: '/rituals1.png', alt: 'Add to cart interface' },
+    { src: '/rituals2.png', alt: 'Natural formula component' },
+    { src: '/shopcart.png', alt: 'Shop cart section' },
+    { src: '/mightlike.png', alt: 'Product details page' },
+    { src: '/faqs.png', alt: 'Checkout process' }
   ];
 
   return (
@@ -51,7 +63,7 @@ export default function NoticeAi() {
               <p className="text-[#333333] text-lg font-light leading-relaxed max-w-xl">
                 A skincare e-commerce platform frontend built with <span className="font-medium">Vue.js & TypeScript.</span> 
                 Designed and implemented the complete user journey - from browsing and filtering products to managing the shopping cart and checkout process.
-                The design aesthetic - warm tones, high-quality visuals and refined typography is built to reflect the brand's luxurious and calming identity.
+                The design aesthetic - warm tones, high-quality visuals and elegant typography is built to reflect the brand's luxurious and calming identity.
               </p>
             </motion.div>
             <motion.div
@@ -62,22 +74,22 @@ export default function NoticeAi() {
             >
               <div className="w-[280px] sm:w-[400px] md:w-[500px]"> 
         
-            <section className=" py-12">
-       <p className={`text-center text-3xl md:text-5xl ${playfair.className} italic text-gray-900 leading-tight tracking-wide`}>
-            Refresh your skin,  
-        <span className="mx-1">
-            <img src="/skincare-model.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white rotate-12"></img>
-        </span>
-        love yourself,  
-         <span className="mx-1">
-            <img src="/clay-mask.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white -rotate-12"></img>
-         </span> <br></br>
-         renew your glow. 
-        <span className="mx-1">
-              <img src="/leaves-plant-nobg.png" alt="face" className="inline-block w-16 h-16 rounded-md rotate-45"></img>
-        </span>
-        </p>
-    </section>
+                <section className="py-12">
+                  <p className={`text-center text-3xl md:text-5xl ${playfair.className} italic text-gray-900 leading-tight tracking-wide`}>
+                    Refresh your skin,  
+                    <span className="mx-1">
+                      <img src="/skincare-model.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white rotate-12"></img>
+                    </span>
+                    love yourself,  
+                    <span className="mx-1">
+                      <img src="/clay-mask.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white -rotate-12"></img>
+                    </span> <br></br>
+                    renew your glow. 
+                    <span className="mx-1">
+                      <img src="/leaves-plant-nobg.png" alt="face" className="inline-block w-16 h-16 rounded-md rotate-45"></img>
+                    </span>
+                  </p>
+                </section>
               </div>
             </motion.div>
           </div>
@@ -96,18 +108,14 @@ export default function NoticeAi() {
             <h2 className="text-2xl font-semibold text-[#333333] mr-2">
               Strategic design engineered to sell
             </h2>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
-</svg>
-
-
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+            </svg>
           </div>
 
           <p className="text-[#333333] text-lg font-light leading-relaxed">
-           Vue.js's simplicity & reactivity let me build exactly what I envisioned while TailwindCSS gave me control of every pixel, turnings design intentions into reality.
-          </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
-          
+            Vue.js's simplicity & reactivity let me build exactly what I envisioned while TailwindCSS gave me control of every pixel, turning design intentions into reality.<br></br>
+        <br></br>The result is a codebase that's easy to maintain, components that are easy to scale, and an interface that feels effortless to use.
           </p>
         </motion.div>
       </div>
@@ -194,7 +202,7 @@ export default function NoticeAi() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      <div className="w-full h-32 flex justify-center items-center ">
+                      <div className="w-full h-32 flex justify-center items-center">
                         <img
                           src={photo}
                           alt={`Component ${index + 1}`}
@@ -213,9 +221,75 @@ export default function NoticeAi() {
       </motion.div>
 
       {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-8 py-20">
+      <div className="max-w-[100rem] mx-auto px-8 py-20">
 
-        {/* Context-aware Search Section */}
+        {/* UI in action - Five Images with Modal */}
+        <motion.div
+          className="max-w-8xl mx-auto mb-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+        >
+         <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+            UI Highlights
+            <LineAnimation className="w-30 h-10 -mt-1"/>
+          </h2>
+
+          {/* Five Images Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+            {uiImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <motion.img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-auto rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
+                  whileHover={{ scale: 1.02 }}
+                  onClick={() => setSelectedImage(image)}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Modal for enlarged image */}
+        {selectedImage && (
+          <motion.div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              className="relative max-w-4xl max-h-[90vh] w-full"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-auto rounded-lg"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-10 right-0 text-white text-2xl font-light hover:text-gray-300"
+              >
+                ✕
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Every pixel serves a purpose Section */}
         <motion.div
           className="max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0 }}
@@ -226,27 +300,13 @@ export default function NoticeAi() {
           <h2 className="text-2xl font-semibold text-[#333333] mb-6">
             Every pixel serves a purpose
           </h2>
-         <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-[#333333] text-lg font-light leading-relaxed">
             The high contrast between carefully chosen colors creates what psychologists call "processing fluency" - the easier something is to visually understand, the more trustworthy it feels. This specific contrast ratio reduces cognitive load, allowing users to focus on purchasing, not processing.
           </p>
-          
-        </motion.div>
-  
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
-        aaa
-          </h2>
-        
         </motion.div>
 
         <motion.div
-          className="max-w-3xl pt-20 mx-auto"
+          className="max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -256,17 +316,17 @@ export default function NoticeAi() {
             Strategic design engineered to sell
           </h2>
           <p className="text-[#333333] text-lg font-light leading-relaxed">
-            Once users land on the search page, they can quickly scan through notices and immediately see what matters most — the country, publication date, and how close each deadline is.
+            Once users land on the product page, they can quickly scan and immediately see what matters most — the product details, pricing, and benefits at a glance.
           </p>
           <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
-            The interface was designed to make these details visually clear at a glance, without needing to open every notice.
+            The interface was designed to make these details visually clear without needing to dig through information.
           </p>
           <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
-            When a user finds one that fits, a single click opens all the key information in a clean, readable layout. From there, they can either visit the official source page or download the notice PDF directly to their computer.
+            When a user finds a product they like, a single click adds it to their cart and the checkout process feels inevitable, not forced.
           </p>
           <div className="flex py-10 flex-row">
             <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
-              User experience has never felt this simple — or this smooth. Click <u>here</u> to view this project on my github.
+              Beautiful design has never been this functional. Click <u>here</u> to view this project on my github.
               <img
                 src="/github.png"
                 alt="github"
