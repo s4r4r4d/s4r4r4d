@@ -31,7 +31,7 @@ export default function Experience(){
                        For nearly 2 years, I have been working as a frontend developer at Slovenian IT company SRC d.o.o. <br/>From user experience analysis, system design to developing the UI of a web app for accessing documents, at SRC I have gained valuable hands-on experience and insight into the whole development process—from idea to deployment.
                     </p>
                     <p className="text-md font-light text-[#666666]">
-                        I have also documented the entire development process in my graduation thesis, available to <u>read here</u>.
+                        I have also documented the entire development process in my graduation thesis, available to <a href="/graduation_thesis.pdf" download="Sara_Radojicic_Thesis.pdf"><u>read here</u></a>.
                     </p>
                     </motion.div>
 

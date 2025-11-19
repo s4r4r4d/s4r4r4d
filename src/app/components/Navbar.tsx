@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 
+
 export default function Navbar() {
   return (
     <nav className="fixed top-0 w-full bg-black h-23 text-white z-50">
@@ -20,7 +21,8 @@ export default function Navbar() {
         </div>
         
         <div className="flex gap-6 items-center">
-          <a href="https://www.linkedin.com/in/sara-radojicic-110360383/" className="hover:text-gray-300 transition">in</a>
+          <a href="https://www.linkedin.com/in/sara-radojicic/" className="hover:text-gray-300 transition">in</a>
+ 
         </div>
       </div>
     </nav>

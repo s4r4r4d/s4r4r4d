@@ -10,7 +10,6 @@ import MoreAboutMe from './Information';
 
 export default function SimpleGallery() {
     const galleryImages = [
-        '/gallery1.jpeg',
         '/gallery2.jpg',
         '/gallery3.jpeg',
         '/gallery4.jpeg',

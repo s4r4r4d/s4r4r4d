@@ -28,7 +28,7 @@ export default function LatestWork() {
     },
   ];
 
-  // Simple fade-in animation
+
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {

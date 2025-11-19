@@ -159,7 +159,7 @@ export default function StoryPage() {
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
             I want to keep building at the intersection of business and technology. Whether 
             that's front-end development, product management, leading software projects or something in between, I'm 
-            drawn to roles where understanding <b>both sides</b> is an advantage.
+            drawn to roles where understanding <b>both sides</b>is an advantage.
           </p>
 
           <p className="text-lg text-[#666666] font-light leading-relaxed">

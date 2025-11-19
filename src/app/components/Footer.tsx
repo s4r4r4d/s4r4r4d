@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="w-full bg-[#f5f5f5] border-t border-gray-200 py-12">
@@ -10,10 +10,10 @@ export default function Footer() {
           
         
           <div className="flex gap-8">
-            <a href="#about" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">about</a>
-            <a href="#portfolio" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">portfolio</a>
-            <a href="#blog" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">blog</a>
-            <a href="#contact" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">contact</a>
+            <Link href="/about" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">about</Link>
+             <Link href="/portfolio" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">portfolio</Link>
+            <Link href="/more" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">blog</Link>
+            <Link href="/contact" className="text-[#757575] hover:text-gray-800 text-sm font-light transition">contact</Link>
           </div>
         </div>
 <div className="flex relative justify-center group">

@@ -75,13 +75,7 @@ export default function Contact() {
                                 className="flex items-center hover:opacity-70 transition">
                                 <img src="/linkedin.png" alt="LinkedIn" className="w-6 h-6"/>
                             </a>
-                            <a
-                                href="https://twitter.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center  hover:opacity-70 transition">
-                                <img src="/twitter.png" alt="Twitter" className="w-5 h-5"/>
-                            </a>
+                            
                         </motion.div>
                     </motion.div>
                     <motion.div 
