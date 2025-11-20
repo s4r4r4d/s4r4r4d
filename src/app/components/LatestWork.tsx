@@ -17,7 +17,7 @@ export default function LatestWork() {
       title: 'Portfolio Design & Development',
       category: 'Designer & Developer Next.js, React, Typescript Portfolio',
       image: '/proj2.png',
-      slug: 'portfolio',
+      slug: 'design',
     },
     {
       id: 3,

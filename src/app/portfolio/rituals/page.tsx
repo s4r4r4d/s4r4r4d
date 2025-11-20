@@ -115,7 +115,7 @@ export default function Rituals() {
 
           <p className="text-[#333333] text-lg font-light leading-relaxed">
             Vue.js's simplicity & reactivity let me build exactly what I envisioned while TailwindCSS gave me control of every pixel, turning design intentions into reality.<br></br>
-        <br></br>The result is a codebase that's easy to maintain, components that are easy to scale, and an interface that feels effortless to use.
+        <br></br>The result is a codebase that's easy to maintain, components that are easy to scale, and an interface that feels easy to use.
           </p>
         </motion.div>
       </div>
