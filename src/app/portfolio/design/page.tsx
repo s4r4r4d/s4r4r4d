@@ -97,7 +97,7 @@ export default function Rituals() {
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
 
-          {/* Design System Content */}
+         
           <div>
             {/* Color Palette */}
             <div className="mb-16">
@@ -145,10 +145,9 @@ export default function Rituals() {
           </h2>
           <p className="text-[#333333] text-lg font-light leading-relaxed">
           
-  Built with <span className="font-medium">Next.js</span>, this portfolio takes advantage of modern web practices — from server-side rendering and static generation to optimized image delivery and route transitions. My inspiration came from minimalist, content-driven portfolios where performance and clarity matter as much as aesthetics. <br/> <br/>
+  Built with <span className="font-medium">Next.js</span>, this portfolio takes advantage of modern web practices — static generation to optimized image delivery and route transitions. My inspiration came from minimalist, content-driven portfolios where performance and clarity matter as much as aesthetics. <br/> <br/>
   I follow clean code principles, keeping every component reusable, accessible, and maintainable. Each animation or interaction serves a purpose — to guide attention, not distract it.
 </p>
-
           
         </motion.div>
 

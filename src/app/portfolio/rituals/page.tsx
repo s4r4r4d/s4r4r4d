@@ -1,13 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Line } from 'recharts';
+import Image from 'next/image';
+import { useState } from 'react';
 import LineAnimation from '@/app/components/LineAnimation';
 import { Playfair_Display } from 'next/font/google';
-import { useState } from 'react';
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -78,15 +74,33 @@ export default function Rituals() {
                   <p className={`text-center text-3xl md:text-5xl ${playfair.className} italic text-gray-900 leading-tight tracking-wide`}>
                     Refresh your skin,  
                     <span className="mx-1">
-                      <img src="/skincare-model.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white rotate-12"></img>
+                      <Image 
+                        src="/skincare-model.jpg" 
+                        alt="face" 
+                        width={64}
+                        height={64}
+                        className="inline-block w-16 h-16 rounded-md border-4 border-white rotate-12"
+                      />
                     </span>
                     love yourself,  
                     <span className="mx-1">
-                      <img src="/clay-mask.jpg" alt="face" className="inline-block w-16 h-16 rounded-md border-4 border-white -rotate-12"></img>
+                      <Image 
+                        src="/clay-mask.jpg" 
+                        alt="face" 
+                        width={64}
+                        height={64}
+                        className="inline-block w-16 h-16 rounded-md border-4 border-white -rotate-12"
+                      />
                     </span> <br></br>
                     renew your glow. 
                     <span className="mx-1">
-                      <img src="/leaves-plant-nobg.png" alt="face" className="inline-block w-16 h-16 rounded-md rotate-45"></img>
+                      <Image 
+                        src="/leaves-plant-nobg.png" 
+                        alt="face" 
+                        width={64}
+                        height={64}
+                        className="inline-block w-16 h-16 rounded-md rotate-45"
+                      />
                     </span>
                   </p>
                 </section>
@@ -203,9 +217,11 @@ export default function Rituals() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
                       <div className="w-full h-32 flex justify-center items-center">
-                        <img
+                        <Image
                           src={photo}
                           alt={`Component ${index + 1}`}
+                          width={80}
+                          height={80}
                           className={`w-20 h-20 rounded-full object-cover ${
                             index === 0 ? '' : 'border-2 border-[#3f4a3d]'
                           }`}
@@ -246,13 +262,19 @@ export default function Rituals() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <motion.img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-auto rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
+                <motion.div
+                  className="relative w-full h-auto"
                   whileHover={{ scale: 1.02 }}
                   onClick={() => setSelectedImage(image)}
-                />
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={400}
+                    height={300}
+                    className="w-full h-auto rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
+                  />
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -274,9 +296,11 @@ export default function Rituals() {
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
+                width={1200}
+                height={800}
                 className="w-full h-auto rounded-lg"
               />
               <button
@@ -326,10 +350,12 @@ export default function Rituals() {
           </p>
           <div className="flex py-10 flex-row">
             <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
-              Beautiful design has never been this functional. Click <u>here</u> to view this project on my github.
-              <img
+             Click <u>here</u> to view this project on my github.
+              <Image
                 src="/github.png"
                 alt="github"
+                width={20}
+                height={20}
                 className="w-5 h-5 inline-block ml-2 mb-1 object-contain"
               />
             </p>

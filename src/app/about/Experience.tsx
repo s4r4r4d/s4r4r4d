@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
 
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 export default function Experience(){
     const images = [
         {src: '/sc1.png', rotate: -12, zIndex: 3},
@@ -54,7 +54,14 @@ export default function Experience(){
                 viewport={{ once: true }}
                 transition={{ duration: 1.5, delay: index * 0.3 }}
               >
-                <img src={img.src} className="w-full h-full object-cover" />
+                <Image
+  src={img.src}
+  alt=""
+  width={800}
+  height={600}
+  className="w-full h-full object-cover"
+/>
+
               </motion.div>
             ))}
           </div>

@@ -1,6 +1,6 @@
 'use client';
 import Lottie from 'lottie-react';
-import worldMap from '@/../public/lottie/worldmap.json';
+import worldMap from '@/../public/lottie/mapa.json';
 
 export default function WorldMapAnimation() {
   return (

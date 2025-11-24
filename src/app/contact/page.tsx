@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -73,9 +74,14 @@ export default function Contact() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center hover:opacity-70 transition">
-                                <img src="/linkedin.png" alt="LinkedIn" className="w-6 h-6"/>
+                                <Image
+                                    src="/linkedin.png"
+                                    alt="LinkedIn"
+                                    width={24}
+                                    height={24}
+                                    priority
+                                />
                             </a>
-                            
                         </motion.div>
                     </motion.div>
                     <motion.div 
@@ -84,82 +90,85 @@ export default function Contact() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     >
-                        <img src="ContactImage.png"
+                        <Image
+                            src="/ContactImage.png"
                             alt="Profile"
+                            width={500}
+                            height={300}
                             className="w-full h-auto"
                         />
                     </motion.div>
                 </div>
             </div>  
             <div className="bg-[#fafafa] border-t border-t-[#dddddd]">
-            <motion.div 
-                className="max-w-7xl mx-auto px-8 py-20"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            >
-                <div className="flex flex-col items-center">
-                    <h2 className="text-4xl font-semibold text-[#333333] mb-12">Send me an email</h2>
+                <motion.div 
+                    className="max-w-7xl mx-auto px-8 py-20"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                >
+                    <div className="flex flex-col items-center">
+                        <h2 className="text-4xl font-semibold text-[#333333] mb-12">Send me an email</h2>
 
-                    <form onSubmit={handleSubmit} className="w-full">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
-                            <div className="flex flex-col gap-8">
-                                <div>
-                                    <label className="block text-[#333333] focus:outline-none font-normal mb-2">Name</label>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        placeholder="Ana Novak"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full px-4 py-3 border rounded-lg bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                                    />
+                        <form onSubmit={handleSubmit} className="w-full">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                                <div className="flex flex-col gap-8">
+                                    <div>
+                                        <label className="block text-[#333333] focus:outline-none font-normal mb-2">Name</label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Ana Novak"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full px-4 py-3 border rounded-lg bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-[#333333] font-normal mb-2">Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="example@gmail.com"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                            className="w-full px-4 py-3 rounded-lg bg-white border focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
+                                        />
+                                    </div>
                                 </div>
                                 <div>
-                                    <label className="block text-[#333333] font-normal mb-2">Email</label>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        placeholder="example@gmail.com"
-                                        value={formData.email}
+                                    <label className="block text-[#333333] font-normal mb-2">Message</label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-4 py-3 rounded-lg bg-white border focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
+                                        rows={6}
+                                        className="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
                                     />
                                 </div>
                             </div>
-                            <div>
-                                <label className="block text-[#333333] font-normal mb-2">Message</label>
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    required
-                                    rows={6}
-                                    className="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
-                                />
-                            </div>
-                        </div>
 
-                        {status && (
-                            <p className={`mb-4 ${status.includes('message') ? 'text-[#333333] font-light' : 'text-red-600'}`}>
-                                {status}
-                            </p>
-                        )}
-                        <div className="flex justify-end">
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="bg-gray-800 text-white px-8 py-3 rounded-lg font-normal hover:bg-gray-900 transition disabled:opacity-70 w-50"
-                        >
-                            {loading ? 'Sending...' : 'Send message'}
-                        </button>
-                        </div>
-                    </form>
-                </div>
-            </motion.div>
-        </div>
+                            {status && (
+                                <p className={`mb-4 ${status.includes('message') ? 'text-[#333333] font-light' : 'text-red-600'}`}>
+                                    {status}
+                                </p>
+                            )}
+                            <div className="flex justify-end">
+                                <button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="bg-gray-800 text-white px-8 py-3 rounded-lg font-normal hover:bg-gray-900 transition disabled:opacity-70 w-50"
+                                >
+                                    {loading ? 'Sending...' : 'Send message'}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </motion.div>
+            </div>
         </div>
     )
 }

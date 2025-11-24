@@ -1,7 +1,7 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LatestWork() {
   const projects = [
@@ -27,7 +27,6 @@ export default function LatestWork() {
       slug: 'rituals',
     },
   ];
-
 
   const fadeInVariants = {
     hidden: { opacity: 0 },
@@ -68,9 +67,11 @@ export default function LatestWork() {
             <Link key={x.id} href={`/portfolio/${x.slug}`}>
               <div className="bg-gray-300 rounded-lg overflow-hidden hover:shadow-lg transition group cursor-pointer">
                 <div className="w-full h-50 bg-[#f2f3f5] p-5 overflow-hidden">
-                  <img
+                  <Image
                     src={x.image}
                     alt={x.title}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>

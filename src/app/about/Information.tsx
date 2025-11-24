@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function MoreAboutMe(){
   return(
@@ -17,18 +18,22 @@ export default function MoreAboutMe(){
             transition={{ duration: 0.8 }}
           >
 
-            <img 
-              src="/gallery2.jpg"
-              alt="Workspace"
-              className="w-80 h-80 rounded-lg shadow-lg"
-            />
+         <Image
+  src="/gallery2.jpg"
+  alt="Workspace"
+  width={320}   
+  height={320}  
+  className="rounded-lg shadow-lg w-80 h-80"
+/>
             
         
-            <img 
-              src="/sara.png"
-              alt="Profile"
-              className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-28 h-28 rounded-full  border-white shadow-2xl object-cover"
-            />
+            <Image
+  src="/sara.png"
+  alt="Profile"
+  width={112}   
+  height={112}   
+  className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 w-28 h-28 rounded-full border-white shadow-2xl object-cover"
+/>
           </motion.div>
 
 

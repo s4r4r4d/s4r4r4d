@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Hero() {
   const leftHalfRef = useRef<HTMLDivElement>(null);
@@ -105,10 +106,13 @@ export default function Hero() {
             animate={{ opacity: 0.5, x: -60 }}
             transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
           >
-            <img
+            <Image
               src="/colours.png"
               alt="Designer work"
+              width={400}
+              height={400}
               className="w-full h-full object-cover rounded-lg"
+              priority
             />
           </motion.div>
 
@@ -120,14 +124,20 @@ export default function Hero() {
             animate={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
             transition={{ duration: 2, ease: "easeInOut" }}
           >
-            <motion.img
-              src="/portrait-colored-fixed.png"
-              alt="Designer"
-              className="w-full h-full object-cover"
+            <motion.div
+              className="relative w-full h-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-            />
+            >
+              <Image
+                src="/portrait-colored-fixed.png"
+                alt="Designer"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
           </motion.div>
 
           {/* Right half - coder portrait */}
@@ -138,15 +148,21 @@ export default function Hero() {
             animate={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }}
             transition={{ duration: 2, ease: "easeInOut" }}
           >
-            <motion.img
-              src="/sara.png"
-              alt="Coder"
-              className="w-full h-full object-cover"
+            <motion.div
+              className="relative w-full h-full"
               style={{ transform: 'translateY(-22px)' }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-            />
+            >
+              <Image
+                src="/sara.png"
+                alt="Coder"
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
           </motion.div>
         </div>
 
