@@ -43,8 +43,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Create the cache directory and set ownership to the `nextjs` user
 RUN mkdir -p /app/.next/cache && \
-    chown -R nextjs:nodejs /app/.next
+    chown -R nextjs:nodejs /app/.next/cache
 
 USER nextjs
 
