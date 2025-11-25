@@ -1,0 +1,25 @@
+name: Continous Deployment
+on:
+  push:
+    tags:
+      - "v*.*.*"
+    branches:
+      - main
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    name: Build and push new image to container registries
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and load image using composite action
+        uses: bl4ko/shared-actions/build-image-with-cache@main
+        with:
+          tags: ghcr.io/s4r4r4d/s4r4r4d:latest,ghcr.io/s4r4r4d/s4r4r4d:${{ github.ref_name }}
+          push: true
+
+
