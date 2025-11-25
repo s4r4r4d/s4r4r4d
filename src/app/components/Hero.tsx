@@ -21,8 +21,8 @@ export default function Hero() {
       await controls.start({
         transition: {
           duration: 2,
-          ease: "easeInOut"
-        }
+          ease: 'easeInOut',
+        },
       });
       setHasAnimated(true);
     };
@@ -33,6 +33,9 @@ export default function Hero() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!hasAnimated) return; // Don't allow mouse control until initial animation is done
+
+      // ignore on small screens – they have their own static layout
+      if (window.innerWidth < 768) return;
 
       const percentage = (e.clientX / window.innerWidth) * 100;
 
@@ -66,20 +69,39 @@ export default function Hero() {
   }, [hasAnimated]);
 
   return (
-    <motion.div 
-      className="flex flex-col bg-white items-center p-32 justify-center w-full"
+    <motion.div
+      className="flex flex-col bg-white items-center justify-center w-full p-8 md:p-32"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex items-center justify-center relative">
+      {/* MOBILE / SMALL: static portrait + two titles */}
+      <div className="flex flex-col items-center md:hidden py-8">
+        <div className="relative w-full max-w-xs aspect-3/4 rounded-lg overflow-hidden mb-4">
+          <Image
+            src="/sara.png"
+            alt="Portrait"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <h2 className="text-xl font-normal text-[#333333] leading-tight">
+          frontend developer &
+        </h2>
+        <h2 className="text-xl font-normal text-[#333333] leading-tight">
+          product designer
+        </h2>
+      </div>
 
-        <motion.div 
-          ref={designerTextRef} 
+
+      <div className="hidden md:flex items-center justify-center relative">
+        <motion.div
+          ref={designerTextRef}
           className="text-center transition-opacity duration-100"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 0.5, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
         >
           <h2 className="text-5xl font-semibold text-[#333333] mb-2">designer</h2>
           <p className="text-[#333333] font-light text-base max-w-xs">
@@ -90,20 +112,20 @@ export default function Hero() {
         {/* Center Image */}
         <div className="relative w-150 h-150 rounded-lg z-10">
           {/* Behind image - designer work */}
-          <motion.div 
+          <motion.div
             ref={designerImageRef}
             className="absolute inset-0 transition-opacity duration-100 z-0"
-            style={{ 
-              width: '400px',  
-              height: '400px', 
-              top: '50%',      
-              left: '50%',    
-              marginTop: '-100px',  
-              marginLeft: '-250px'  
+            style={{
+              width: '400px',
+              height: '400px',
+              top: '50%',
+              left: '50%',
+              marginTop: '-100px',
+              marginLeft: '-250px',
             }}
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 0.5, x: -60 }}
-            transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
+            transition={{ duration: 1.5, delay: 1, ease: 'easeInOut' }}
           >
             <Image
               src="/colours.png"
@@ -121,7 +143,7 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full z-20"
             initial={{ clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)' }}
             animate={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 2, ease: 'easeInOut' }}
           >
             <motion.div
               className="relative w-full h-full"
@@ -145,7 +167,7 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full z-20"
             initial={{ clipPath: 'polygon(0% 0, 0% 0, 0% 100%, 0% 100%)' }}
             animate={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 2, ease: 'easeInOut' }}
           >
             <motion.div
               className="relative w-full h-full"
@@ -165,15 +187,19 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div 
-          ref={coderTextRef} 
+        <motion.div
+          ref={coderTextRef}
           className="text-center transition-opacity duration-100"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 0.5, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
         >
           <h2 className="text-5xl font-semibold text-[#333333] mb-2">
-            <span className="font-semibold">frontend<br/>developer</span> 
+            <span className="font-semibold">
+              frontend
+              <br />
+              developer
+            </span>
           </h2>
           <p className="text-[#333333] text-base font-light max-w-xs">
             Front end developer who writes clean, elegant and efficient code.
