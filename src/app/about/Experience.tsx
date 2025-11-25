@@ -43,7 +43,7 @@ export default function Experience(){
                     transition = {{ duration: 0.8, delay: 0.2 }}
                     >
                     </motion.div>
-            <div className="flex-1 relative h-96 flex items-center justify-center">
+            <div className="flex-1 relative h-96 flex items-center sm: py-30 sm: mb-10 justify-center">
             {images.map((img, index) => (
               <motion.div
                 key={index}

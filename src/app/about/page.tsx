@@ -1,6 +1,4 @@
 'use client';
-import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import Chart from './Chart'; 
 import Experience from './Experience';

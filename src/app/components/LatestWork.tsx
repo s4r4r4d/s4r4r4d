@@ -25,19 +25,16 @@ export default function LatestWork() {
       category: 'Creating and developing a lean design system',
       image: '/project3.png',
       slug: 'rituals',
-    },
-  ];
 
-  const fadeInVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-      },
+      
     },
-  };
+    
+  ];
+    projects.forEach(p => {
+    console.log('Loading image:', p.image);
+  });
+
+ 
 
   return (
     <section className="w-full border-t border-t-[#dddddd] bg-[#fafafa] py-26">
@@ -47,13 +44,13 @@ export default function LatestWork() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInVariants}
+
         >
-          <div className="flex-1 h-px bg-gray-300"></div>
+        
           <h2 className="text-center text-gray-500 text-sm tracking-widest whitespace-nowrap">
             SOME OF MY LATEST WORK
           </h2>
-          <div className="flex-1 h-px bg-gray-300"></div>
+
         </motion.div>
 
         <motion.div
@@ -61,7 +58,7 @@ export default function LatestWork() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInVariants}
+
         >
           {projects.map((x) => (
             <Link key={x.id} href={`/portfolio/${x.slug}`}>

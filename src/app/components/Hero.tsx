@@ -19,7 +19,6 @@ export default function Hero() {
     // Initial animation on mount - sweep from left to right
     const animateInitial = async () => {
       await controls.start({
-        clipPathProgress: 70,
         transition: {
           duration: 2,
           ease: "easeInOut"

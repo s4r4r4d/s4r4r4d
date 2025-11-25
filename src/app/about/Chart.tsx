@@ -7,9 +7,8 @@ export default function DesignerCoderChart() {
     { name: 'designer', value: 20 },
     { name: 'developer', value: 80 }
   ];
-
   const COLORS = ['#B8B8B8', '#3F3F3F'];
-
+  
   const designerSkills = [
     'UI design',
     'UX design',
@@ -17,7 +16,7 @@ export default function DesignerCoderChart() {
     'Interaction design',
     '"Making it pop"'
   ];
-
+  
   const coderSkills = [
     'Front-end development',
     'TailwindCSS',
@@ -31,9 +30,8 @@ export default function DesignerCoderChart() {
   return (
     <section className="w-full bg-[#fafafa] border-t border-b border-gray-200 py-20">
       <div className="max-w-6xl mx-auto px-8">
-        <div className="flex items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
-
           <motion.div 
             className="flex-1 text-right"
             initial={{ opacity: 0, x: -30 }}
@@ -42,14 +40,13 @@ export default function DesignerCoderChart() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl font-semibold text-[#333333] mb-6">UI/UX design</h2>
-            <ul className="space-y-2 text-[#666666]">
+            <ul className="space-y-2 sm: text-left text-[#666666]">
               {designerSkills.map((skill, index) => (
                 <li key={index}>{skill}</li>
               ))}
             </ul>
           </motion.div>
 
-´
           <motion.div 
             className="w-96 h-96"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -78,7 +75,6 @@ export default function DesignerCoderChart() {
             </PieChart>
           </motion.div>
 
-
           <motion.div 
             className="flex-1 text-left"
             initial={{ opacity: 0, x: 30 }}
@@ -93,7 +89,6 @@ export default function DesignerCoderChart() {
               ))}
             </ul>
           </motion.div>
-
         </div>
       </div>
     </section>

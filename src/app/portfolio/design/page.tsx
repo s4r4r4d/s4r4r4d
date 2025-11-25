@@ -1,38 +1,15 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Line } from 'recharts';
 import LineAnimation from '@/app/components/LineAnimation';
-import { Playfair_Display } from 'next/font/google';
-import { useState } from 'react';
 import Hero from '@/app/components/Hero';
 
-const playfair = Playfair_Display({ 
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['italic'] 
-});
 
 export default function Rituals() {
-  const [selectedImage, setSelectedImage] = useState(null);
 
-  const photos = [
-    '/checklist.png',
-    '/growth.png',
-    '/leaves.png',
-    '/transport.png',
-  ];
 
-  const uiImages = [
-    { src: '/rituals1.png', alt: 'Add to cart interface' },
-    { src: '/rituals2.png', alt: 'Natural formula component' },
-    { src: '/shopcart.png', alt: 'Shop cart section' },
-    { src: '/mightlike.png', alt: 'Product details page' },
-    { src: '/faqs.png', alt: 'Checkout process' } 
-  ];
+
 
   return (
     <div className="min-h-screen py-10 bg-white">

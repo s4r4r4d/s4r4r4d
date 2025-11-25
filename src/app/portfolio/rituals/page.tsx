@@ -10,10 +10,6 @@ const playfair = Playfair_Display({
   weight: ['400', '700'],
   style: ['italic'] 
 });
-
-export default function Rituals() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   const photos = [
     '/checklist.png',
     '/growth.png',
@@ -28,6 +24,14 @@ export default function Rituals() {
     { src: '/mightlike.png', alt: 'Product details page' },
     { src: '/faqs.png', alt: 'Checkout process' }
   ];
+
+export default function Rituals() {
+  const [selectedImage, setSelectedImage] = useState<{
+  src: string;
+  alt: string;
+} | null>(null);
+
+
 
   return (
     <div className="min-h-screen py-10 bg-white">
@@ -350,7 +354,14 @@ export default function Rituals() {
           </p>
           <div className="flex py-10 flex-row">
             <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
-             Click <u>here</u> to view this project on my github.
+             Click 
+              <a
+              href="https://github.com/s4r4r4d"
+              target="_blank"
+              rel="noopener noreferrer">
+              <u> here </u>
+              </a>
+               to view this project on my github.
               <Image
                 src="/github.png"
                 alt="github"

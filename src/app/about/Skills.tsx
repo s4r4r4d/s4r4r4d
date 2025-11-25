@@ -1,7 +1,7 @@
-+'use client';
+'use client';
 
 import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
 
 export default function SkillsChart() {
   const skills = [
@@ -44,7 +44,7 @@ export default function SkillsChart() {
               axisLine={false}
               tickLine={false}
             />
-            <Tooltip cursor={false} />
+          
             <Bar dataKey="value" radius={[8, 8, 0, 0]}>
               {skills.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />

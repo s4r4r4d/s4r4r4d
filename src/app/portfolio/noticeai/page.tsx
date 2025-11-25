@@ -4,10 +4,6 @@ import Image from 'next/image';
 import WorldMapAnimation from '@/app/components/WorldMapAnimation';
 import LineAnimation from '@/app/components/LineAnimation';
 import { useState } from 'react';
-
-export default function NoticeAi() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   const galleryImages = [
     { 
       thumbnail: '/thumbnail5.png', // Thumbnail image
@@ -36,6 +32,11 @@ export default function NoticeAi() {
       alt: 'NoticeAI smart search'
     },
   ];
+
+export default function NoticeAi() {
+ const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+
+
 
   return (
     <div className="min-h-screen py-10 bg-white">
@@ -68,7 +69,7 @@ export default function NoticeAi() {
                 A friend and I developed <span className="font-medium">NoticeAI</span>, an
                 AI-powered platform that scrapes and filters public procurement
                 notices. It helps businesses discover relevant tenders faster by classifying and
-                prioritizing opportunities based on custom criteria. Built with Next.js & Python.
+                prioritizing opportunities based on custom criteria. Built with Next.js, Python & used Keycloak for user authentication.
               </p>
             </motion.div>
             <motion.div
@@ -231,7 +232,7 @@ export default function NoticeAi() {
 
           {/* Five Images Grid */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
-            {galleryImages.map((image, index) => (
+            {galleryImages.map((x, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
@@ -242,11 +243,11 @@ export default function NoticeAi() {
                 <motion.div
                   className="relative w-full h-48 rounded-lg overflow-hidden shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
                   whileHover={{ scale: 1.02 }}
-                  onClick={() => setSelectedImage(image)}
+                  onClick={() => setSelectedImage(x)}
                 >
                   <Image
-                    src={image.thumbnail}
-                    alt={image.alt}
+                    src={x.thumbnail}
+                    alt={x.alt}
                     fill
                     className="object-cover "
                   />
@@ -327,7 +328,14 @@ export default function NoticeAi() {
           </p>
           <div className="flex py-10 flex-row">
             <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
-              Searching through public tenders has never felt this simple — or this fast. Click <u>here</u> to view this project on my github.
+              Searching through public tenders has never felt this simple — or this fast. Click 
+              <a
+              href="https://github.com/s4r4r4d"
+              target="_blank"
+              rel="noopener noreferrer">
+              <u> here </u>
+              </a>
+               to view this project on my github.
               <Image
                 src="/github.png"
                 alt="github"

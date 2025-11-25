@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import LatestWork from '../components/LatestWork';
@@ -32,7 +31,7 @@ export default function SimpleGallery() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             <Image
-              src="/makeitpop.png"
+              src="/hello-whitebg.png"
               alt="Profile"
               width={500}
               height={400}
