@@ -1,11 +1,11 @@
 {
   "name": "portfolio-cv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "start": "node .next/standalone/server.js 0.0.0.0:3000",
+    "build": "next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "recharts": "^3.3.0",
+    "sharp": "^0.34.5",
     "swiper": "^12.0.3"
   },
   "devDependencies": {
