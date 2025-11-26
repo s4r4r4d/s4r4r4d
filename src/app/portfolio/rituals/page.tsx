@@ -140,7 +140,7 @@ export default function Rituals() {
       
    
       <motion.div 
-        className="w-full bg-[#fafafa] py-28 border-b border-gray-200 relative"
+        className="w-full bg-[#fafafa] py-12 sm:py-28 border-b border-gray-200 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -211,7 +211,7 @@ export default function Rituals() {
                 transition={{ duration: 0.8 }}
               >
                 <h4 className="text-lg font-medium text-center text-[#333333] mb-6">Iconography</h4>
-                <div className="grid grid-cols-2 gap-3 auto-rows-max py-20">
+                <div className="grid grid-cols-2 gap-3 auto-rows-max sm:py-20">
                   {photos.map((photo, index) => (
                     <motion.div
                       key={index}

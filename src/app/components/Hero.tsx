@@ -86,10 +86,10 @@ export default function Hero() {
             priority
           />
         </div>
-        <h2 className="text-xl font-normal text-[#333333] leading-tight">
+        <h2 className="text-2xl font-normal text-[#333333] mt-5 leading-tight">
           frontend developer &
         </h2>
-        <h2 className="text-xl font-normal text-[#333333] leading-tight">
+        <h2 className="text-2xl font-normal text-[#333333] leading-tight">
           product designer
         </h2>
       </div>
