@@ -156,7 +156,7 @@ export default function Contact() {
                                     {status}
                                 </p>
                             )}
-                            <div className="flex justify-end">
+                            <div className="flex justify-center sm:justify-end">
                                 <button
                                     type="submit"
                                     disabled={loading}
