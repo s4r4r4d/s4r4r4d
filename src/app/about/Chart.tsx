@@ -7,8 +7,6 @@ export default function DesignerCoderChart() {
     { name: 'designer', value: 20 },
     { name: 'developer', value: 80 }
   ];
-  const COLORS = ['#B8B8B8', '#3F3F3F'];
-  
   const designerSkills = [
     'UI design',
     'UX design',
@@ -28,7 +26,7 @@ export default function DesignerCoderChart() {
   ];
 
   return (
-    <section className="w-full bg-[#fafafa] border-t border-b border-gray-200 py-20">
+    <section className="w-full bg-background-main border-t border-b border-gray-200 py-20">
       <div className="max-w-6xl mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           
@@ -39,10 +37,10 @@ export default function DesignerCoderChart() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold text-[#333333] mb-6">UI/UX design</h2>
-            <ul className="space-y-2 sm: text-left text-[#666666]">
-              {designerSkills.map((skill, index) => (
-                <li key={index}>{skill}</li>
+            <h2 className="text-3xl font-semibold text-text-primary mb-6">UI/UX design</h2>
+            <ul className="space-y-2 sm: text-left text-text-secondary">
+              {designerSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
               ))}
             </ul>
           </motion.div>
@@ -69,7 +67,7 @@ export default function DesignerCoderChart() {
                 labelLine={false}
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                  <Cell key={`cell-${index}`} fill={index === 0 ? '#B8B8B8' : '#3F3F3F'} />
                 ))}
               </Pie>
             </PieChart>
@@ -82,10 +80,10 @@ export default function DesignerCoderChart() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold text-[#333333] mb-6">development</h2>
-            <ul className="space-y-2 text-[#666666]">
-              {coderSkills.map((skill, index) => (
-                <li key={index}>{skill}</li>
+            <h2 className="text-3xl font-semibold text-text-primary mb-6">development</h2>
+            <ul className="space-y-2 text-text-secondary">
+              {coderSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
               ))}
             </ul>
           </motion.div>

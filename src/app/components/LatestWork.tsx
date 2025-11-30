@@ -30,14 +30,12 @@ export default function LatestWork() {
     },
     
   ];
-    projects.forEach(p => {
-    console.log('Loading image:', p.image);
-  });
+   
 
  
 
   return (
-    <section className="w-full border-t border-t-[#dddddd] bg-[#fafafa] py-26">
+    <section className="w-full border-t border-t-border-light bg-background-main py-26">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           className="flex items-center justify-center mb-12 gap-8"
@@ -72,12 +70,12 @@ export default function LatestWork() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6 bg-[#ffffff]">
-                  <h3 className="text-lg font-light text-[#353535] mb-2">
+                <div className="p-6 bg-white">
+                  <h3 className="text-lg font-light text-text-primary mb-2">
                     {x.title}
                   </h3>
                   <div className="flex items-center justify-center gap-2 group">
-                    <p className="text-sm font-light text-[#747474]">
+                    <p className="text-sm font-light text-text-light">
                       {x.category}
                     </p>
                     <svg
@@ -86,7 +84,7 @@ export default function LatestWork() {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
-                      className="size-8 text-[#e4e4e4] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
+                      className="size-8 text-border-medium opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300"
                     >
                       <path
                         strokeLinecap="round"

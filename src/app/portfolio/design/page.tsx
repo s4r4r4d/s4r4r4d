@@ -15,7 +15,7 @@ export default function Rituals() {
     <div className="min-h-screen py-10 bg-white">
  
       <motion.div 
-        className="w-full border-b border-b-[#dddddd]"
+        className="w-full border-b border-b-border-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -28,17 +28,17 @@ export default function Rituals() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              <h1 className="text-3xl font-normal text-[#333333] leading-tight mb-6">
+              <h1 className="text-3xl font-normal text-text-primary leading-tight mb-6">
                 Portfolio Design representing Dual Nature
               </h1>
               <div className="relative mb-8">
-                <div className="w-full h-px bg-[#dddddd]" />
+                <div className="w-full h-px bg-border-light" />
                 <div className="flex justify-between mt-3">
-                  <span className="text-[#666666] text-lg font-light">Portfolio</span>
-                  <span className="text-[#666666] text-lg font-light">November 2025</span>
+                  <span className="text-text-secondary text-lg font-light">Portfolio</span>
+                  <span className="text-text-secondary text-lg font-light">November 2025</span>
                 </div>
               </div>
-              <p className="text-[#333333] text-lg font-light leading-relaxed max-w-xl">
+              <p className="text-text-primary text-lg font-light leading-relaxed max-w-xl">
                 This project showcases my ability to blend design and development seamlessly. Crafted with Next.js and TailwindCSS, the portfolio reflects my dual expertise as both a UX specialist and a coder. Built with React, Typescript & Next.js.
               </p>
             </motion.div>
@@ -62,14 +62,14 @@ export default function Rituals() {
       
    
       <motion.div 
-        className="w-full bg-[#fafafa] pt-16  border-b border-gray-200 relative"
+        className="w-full bg-background-main pt-16  border-b border-gray-200 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-6xl mx-auto px-8 mb-20">
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+          <h2 className="text-2xl text-center font-semibold text-text-primary mb-16">
             Design System
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
@@ -78,7 +78,7 @@ export default function Rituals() {
           <div>
             {/* Color Palette */}
             <div className="mb-16">
-              <h4 className="text-lg font-medium text-[#333333] mb-6">Color Palette</h4>
+              <h4 className="text-lg font-medium text-text-primary mb-6">Color Palette</h4>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {[
                   { name: 'Teal Mist', hex: '#5f8c8a' },
@@ -89,11 +89,11 @@ export default function Rituals() {
                 ].map((color) => (
                   <div key={color.hex} className="flex flex-col">
                     <div
-                      className="w-full h-24 rounded-lg shadow-sm border border-[#eeeeee] mb-3"
+                      className="w-full h-24 rounded-lg shadow-sm border border-border-medium mb-3"
                       style={{ backgroundColor: color.hex }}
                     />
-                    <p className="text-[#333333] font-medium text-sm">{color.name}</p>
-                    <p className="text-[#666666] text-xs">{color.hex}</p>
+                    <p className="text-text-primary font-medium text-sm">{color.name}</p>
+                    <p className="text-text-secondary text-xs">{color.hex}</p>
                   </div>
                 ))}
               </div>
@@ -117,10 +117,10 @@ export default function Rituals() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
+          <h2 className="text-2xl font-semibold text-text-primary mb-6">
             Every pixel serves a purpose
           </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
           
   Built with <span className="font-medium">Next.js</span>, this portfolio takes advantage of modern web practices — static generation to optimized image delivery and route transitions. My inspiration came from minimalist, content-driven portfolios where performance and clarity matter as much as aesthetics. <br/> <br/>
   I follow clean code principles, keeping every component reusable, accessible, and maintainable. Each animation or interaction serves a purpose — to guide attention, not distract it.

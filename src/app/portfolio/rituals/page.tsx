@@ -37,7 +37,7 @@ export default function Rituals() {
     <div className="min-h-screen py-10 bg-white">
  
       <motion.div 
-        className="w-full border-b border-b-[#dddddd]"
+        className="w-full border-b border-b-border-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -50,17 +50,17 @@ export default function Rituals() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              <h1 className="text-3xl font-normal text-[#333333] leading-tight mb-6">
+              <h1 className="text-3xl font-normal text-text-primary leading-tight mb-6">
                 A skincare e-commerce platform frontend built with Vue.js
               </h1>
               <div className="relative mb-8">
-                <div className="w-full h-px bg-[#dddddd]" />
+                <div className="w-full h-px bg-border-light" />
                 <div className="flex justify-between mt-3">
-                  <span className="text-[#666666] text-lg font-light">Rituals</span>
-                  <span className="text-[#666666] text-lg font-light">June 2025</span>
+                  <span className="text-text-secondary text-lg font-light">Rituals</span>
+                  <span className="text-text-secondary text-lg font-light">June 2025</span>
                 </div>
               </div>
-              <p className="text-[#333333] text-lg font-light leading-relaxed max-w-xl">
+              <p className="text-text-primary text-lg font-light leading-relaxed max-w-xl">
                 A skincare e-commerce platform frontend built with <span className="font-medium">Vue.js & TypeScript.</span> 
                 Designed and implemented the complete user journey - from browsing and filtering products to managing the shopping cart and checkout process.
                 The design aesthetic - warm tones, high-quality visuals and elegant typography is built to reflect the brand's luxurious and calming identity.
@@ -114,7 +114,7 @@ export default function Rituals() {
         </div>
       </motion.div>
 
-      <div className="border-b border-b-[#dddddd] py-5">
+      <div className="border-b border-b-border-light py-5">
         <motion.div
           className="max-w-6xl mx-auto px-8 py-20 "
           initial={{ opacity: 0 }}
@@ -123,7 +123,7 @@ export default function Rituals() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex flex-row items-center justify-start mb-6">
-            <h2 className="text-2xl font-semibold text-[#333333] mr-2">
+            <h2 className="text-2xl font-semibold text-text-primary mr-2">
               Strategic design engineered to sell
             </h2>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
@@ -131,7 +131,7 @@ export default function Rituals() {
             </svg>
           </div>
 
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             Vue.js's simplicity & reactivity let me build exactly what I envisioned while TailwindCSS gave me control of every pixel, turning design intentions into reality.<br></br>
         <br></br>The result is a codebase that's easy to maintain, components that are easy to scale, and an interface that feels easy to use.
           </p>
@@ -140,14 +140,14 @@ export default function Rituals() {
       
    
       <motion.div 
-        className="w-full bg-[#fafafa] py-12 sm:py-28 border-b border-gray-200 relative"
+        className="w-full bg-background-main py-12 sm:py-28 border-b border-gray-200 relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-6xl mx-auto px-8 mb-20">
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+          <h2 className="text-2xl text-center font-semibold text-text-primary mb-16">
             Design System
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
@@ -156,22 +156,21 @@ export default function Rituals() {
           <div>
             {/* Color Palette */}
             <div className="mb-16">
-              <h4 className="text-lg font-medium text-[#333333] mb-6">Color Palette</h4>
+              <h4 className="text-lg font-medium text-text-primary mb-6">Color Palette</h4>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {[
-                  { name: 'Primary', hex: '#e9e8e1' },
-                  { name: 'Light Beige', hex: '#f2f3ee' },
-                  { name: 'Dark Green', hex: '#3f4a3d' },
-                  { name: 'Text Light', hex: '#a0a0a0' },
-                  { name: 'Borders', hex: '#DDDDDD'},
+                  { name: 'Primary', hex: 'rituals-primary' },
+                  { name: 'Light Beige', hex: 'rituals-light-beige' },
+                  { name: 'Dark Green', hex: 'rituals-dark-green' },
+                  { name: 'Text Light', hex: 'rituals-text-light' },
+                  { name: 'Borders', hex: 'border-light'},
                 ].map((color) => (
                   <div key={color.hex} className="flex flex-col">
                     <div
-                      className="w-full h-24 rounded-lg shadow-sm border border-[#eeeeee] mb-3"
-                      style={{ backgroundColor: color.hex }}
+                      className={`w-full h-24 rounded-lg shadow-sm border border-border-medium mb-3 bg-${color.hex}`}
                     />
-                    <p className="text-[#333333] font-medium text-sm">{color.name}</p>
-                    <p className="text-[#666666] text-xs">{color.hex}</p>
+                    <p className="text-text-primary font-medium text-sm">{color.name}</p>
+                    <p className="text-text-secondary text-xs">{color.hex}</p>
                   </div>
                 ))}
               </div>
@@ -181,23 +180,23 @@ export default function Rituals() {
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Left - Typography */}
               <div className="flex-1">
-                <h4 className="text-lg font-medium text-[#333333] mb-6">Typography</h4>
+                <h4 className="text-lg font-medium text-text-primary mb-6">Typography</h4>
                 <div className="space-y-6">
-                  <div className="border-l-4 border-[#8B7355] pl-6 py-4">
-                    <p className="text-3xl font-semibold text-[#333333] mb-2">Heading 1</p>
-                    <p className="text-sm text-[#666666]">32px / Font Weight: 600 / Line Height: 1.2</p>
+                  <div className="border-l-4 border-rituals-dark-green pl-6 py-4">
+                    <p className="text-3xl font-semibold text-text-primary mb-2">Heading 1</p>
+                    <p className="text-sm text-text-secondary">32px / Font Weight: 600 / Line Height: 1.2</p>
                   </div>
-                  <div className="border-l-4 border-[#8B7355] pl-6 py-4">
-                    <p className="text-2xl font-semibold text-[#333333] mb-2">Heading 2</p>
-                    <p className="text-sm text-[#666666]">24px / Font Weight: 600 / Line Height: 1.3</p>
+                  <div className="border-l-4 border-rituals-dark-green pl-6 py-4">
+                    <p className="text-2xl font-semibold text-text-primary mb-2">Heading 2</p>
+                    <p className="text-sm text-text-secondary">24px / Font Weight: 600 / Line Height: 1.3</p>
                   </div>
-                  <div className="border-l-4 border-[#8B7355] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-normal mb-2">Body Text Regular</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 400 / Line Height: 1.6</p>
+                  <div className="border-l-4 border-rituals-dark-green pl-6 py-4">
+                    <p className="text-lg text-text-primary font-normal mb-2">Body Text Regular</p>
+                    <p className="text-sm text-text-secondary">18px / Font Weight: 400 / Line Height: 1.6</p>
                   </div>
-                  <div className="border-l-4 border-[#8B7355] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-light mb-2">Body Text Light</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 300 / Line Height: 1.6</p>
+                  <div className="border-l-4 border-rituals-dark-green pl-6 py-4">
+                    <p className="text-lg text-text-primary font-light mb-2">Body Text Light</p>
+                    <p className="text-sm text-text-secondary">18px / Font Weight: 300 / Line Height: 1.6</p>
                   </div>
                 </div>
               </div>
@@ -210,7 +209,7 @@ export default function Rituals() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8 }}
               >
-                <h4 className="text-lg font-medium text-center text-[#333333] mb-6">Iconography</h4>
+                <h4 className="text-lg font-medium text-center text-text-primary mb-6">Iconography</h4>
                 <div className="grid grid-cols-2 gap-3 auto-rows-max sm:py-20">
                   {photos.map((photo, index) => (
                     <motion.div
@@ -227,7 +226,7 @@ export default function Rituals() {
                           width={80}
                           height={80}
                           className={`w-20 h-20 rounded-full object-cover ${
-                            index === 0 ? '' : 'border-2 border-[#3f4a3d]'
+                            index === 0 ? '' : 'border-2 border-rituals-dark-green'
                           }`}
                         />
                       </div>
@@ -251,7 +250,7 @@ export default function Rituals() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-         <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+         <h2 className="text-2xl text-center font-semibold text-text-primary mb-16">
             UI Highlights
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
@@ -276,7 +275,7 @@ export default function Rituals() {
                     alt={image.alt}
                     width={400}
                     height={300}
-                    className="w-full h-auto rounded-lg shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
+                    className="w-full h-auto rounded-lg shadow-sm border border-border-light cursor-pointer hover:shadow-lg transition-shadow"
                   />
                 </motion.div>
               </motion.div>
@@ -325,10 +324,10 @@ export default function Rituals() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
+          <h2 className="text-2xl font-semibold text-text-primary mb-6">
             Every pixel serves a purpose
           </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             The high contrast between carefully chosen colors creates what psychologists call "processing fluency" - the easier something is to visually understand, the more trustworthy it feels. This specific contrast ratio reduces cognitive load, allowing users to focus on purchasing, not processing.
           </p>
         </motion.div>
@@ -340,20 +339,20 @@ export default function Rituals() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
+          <h2 className="text-2xl font-semibold text-text-primary mb-6">
             Strategic design engineered to sell
           </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             Once users land on the product page, they can quickly scan and immediately see what matters most — the product details, pricing, and benefits at a glance.
           </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
+          <p className="text-text-primary text-lg font-light leading-relaxed mt-4">
             The interface was designed to make these details visually clear without needing to dig through information.
           </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
+          <p className="text-text-primary text-lg font-light leading-relaxed mt-4">
             When a user finds a product they like, a single click adds it to their cart and the checkout process feels inevitable, not forced.
           </p>
           <div className="flex py-10 flex-row">
-            <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
+            <p className="text-text-primary text-lg font-normal leading-relaxed mt-4">
              Click 
               <a
               href="https://github.com/s4r4r4d"

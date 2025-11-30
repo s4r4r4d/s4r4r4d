@@ -42,7 +42,7 @@ export default function NoticeAi() {
     <div className="min-h-screen py-10 bg-white">
  
       <motion.div 
-        className="w-full border-b border-b-[#dddddd]"
+        className="w-full border-b border-b-border-light"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -55,17 +55,17 @@ export default function NoticeAi() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
-              <h1 className="text-3xl font-normal text-[#333333] leading-tight mb-6">
+              <h1 className="text-3xl font-normal text-text-primary leading-tight mb-6">
                 AI-powered platform for discovering <br></br> public notices across Europe.
               </h1>
               <div className="relative mb-8">
-                <div className="w-full h-px bg-[#dddddd]" />
+                <div className="w-full h-px bg-border-light" />
                 <div className="flex justify-between mt-3">
-                  <span className="text-[#666666] text-lg font-light">NoticeAI</span>
-                  <span className="text-[#666666] text-lg font-light">January 2025</span>
+                  <span className="text-text-secondary text-lg font-light">NoticeAI</span>
+                  <span className="text-text-secondary text-lg font-light">January 2025</span>
                 </div>
               </div>
-              <p className="text-[#333333] text-lg font-light leading-relaxed max-w-xl">
+              <p className="text-text-primary text-lg font-light leading-relaxed max-w-xl">
                 A friend and I developed <span className="font-medium">NoticeAI</span>, an
                 AI-powered platform that scrapes and filters public procurement
                 notices. It helps businesses discover relevant tenders faster by classifying and
@@ -88,14 +88,14 @@ export default function NoticeAi() {
 
       {/* Design System Section */}
       <motion.div 
-        className="w-full bg-[#fafafa] py-28 border-b border-gray-200"
+        className="w-full bg-background-main py-28 border-b border-gray-200"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+          <h2 className="text-2xl text-center font-semibold text-text-primary mb-16">
             Design System
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
@@ -104,22 +104,21 @@ export default function NoticeAi() {
           <div>
             {/* Color Palette */}
             <div className="mb-16">
-              <h4 className="text-lg font-medium text-[#333333] mb-6">Color Palette</h4>
+              <h4 className="text-lg font-medium text-text-primary mb-6">Color Palette</h4>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {[
-                  { name: 'Primary Color', hex: '#e6358d' },
-                  { name: 'Light Gray', hex: '#212121' },
-                  { name: 'Secondary Color', hex: '#4f3442' },
-                  { name: 'Light Text', hex: '#edf1f2' },
-                  { name: 'Borders', hex: '#DDDDDD'},
+                  { name: 'Primary Color', hex: 'noticeai-primary' },
+                  { name: 'Light Gray', hex: 'noticeai-dark-gray' },
+                  { name: 'Secondary Color', hex: 'noticeai-secondary' },
+                  { name: 'Light Text', hex: 'noticeai-light-text' },
+                  { name: 'Borders', hex: 'noticeai-borders'},
                 ].map((color) => (
                   <div key={color.hex} className="flex flex-col">
                     <div
-                      className="w-full h-24 rounded-lg shadow-sm border border-[#eeeeee] mb-3"
-                      style={{ backgroundColor: color.hex }}
+                      className={`w-full h-24 rounded-lg shadow-sm border border-border-medium mb-3 bg-${color.hex}`}
                     />
-                    <p className="text-[#333333] font-medium text-sm">{color.name}</p>
-                    <p className="text-[#666666] text-xs">{color.hex}</p>
+                    <p className="text-text-primary font-medium text-sm">{color.name}</p>
+                    <p className="text-text-secondary text-xs">{color.hex}</p>
                   </div>
                 ))}
               </div>
@@ -129,23 +128,23 @@ export default function NoticeAi() {
             <div className="flex flex-col lg:flex-row gap-12">
               {/* Left - Typography */}
               <div className="flex-1">
-                <h4 className="text-lg font-medium text-[#333333] mb-6">Typography</h4>
+                <h4 className="text-lg font-medium text-text-primary mb-6">Typography</h4>
                 <div className="space-y-6">
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-3xl font-semibold text-[#333333] mb-2">Heading 1</p>
-                    <p className="text-sm text-[#666666]">32px / Font Weight: 600 / Line Height: 1.2</p>
+                  <div className="border-l-4 border-noticeai-primary pl-6 py-4">
+                    <p className="text-3xl font-semibold text-text-primary mb-2">Heading 1</p>
+                    <p className="text-sm text-text-secondary">32px / Font Weight: 600 / Line Height: 1.2</p>
                   </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-2xl font-semibold text-[#333333] mb-2">Heading 2</p>
-                    <p className="text-sm text-[#666666]">24px / Font Weight: 600 / Line Height: 1.3</p>
+                  <div className="border-l-4 border-noticeai-primary pl-6 py-4">
+                    <p className="text-2xl font-semibold text-text-primary mb-2">Heading 2</p>
+                    <p className="text-sm text-text-secondary">24px / Font Weight: 600 / Line Height: 1.3</p>
                   </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-normal mb-2">Body Text Regular</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 400 / Line Height: 1.6</p>
+                  <div className="border-l-4 border-noticeai-primary pl-6 py-4">
+                    <p className="text-lg text-text-primary font-normal mb-2">Body Text Regular</p>
+                    <p className="text-sm text-text-secondary">18px / Font Weight: 400 / Line Height: 1.6</p>
                   </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-light mb-2">Body Text Light</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 300 / Line Height: 1.6</p>
+                  <div className="border-l-4 border-noticeai-primary pl-6 py-4">
+                    <p className="text-lg text-text-primary font-light mb-2">Body Text Light</p>
+                    <p className="text-sm text-text-secondary">18px / Font Weight: 300 / Line Height: 1.6</p>
                   </div>
                 </div>
               </div>
@@ -158,15 +157,15 @@ export default function NoticeAi() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8 }}
               >
-                <h4 className="text-lg font-medium text-center text-[#333333] mb-6">Components</h4>
+                <h4 className="text-lg font-medium text-center text-text-primary mb-6">Components</h4>
                 <div className="space-y-2">
                   <div className="py-10 rounded-3xl ">
-                    <button className="px-8 rounded-full bg-[#e6358c] font-thin py-3 hover:bg-[#c0276b] text-white ring-1 ring-white/15  transition ">
+                    <button className="px-8 rounded-full bg-noticeai-primary font-thin py-3 hover:bg-noticeai-primary/80 text-white ring-1 ring-white/15  transition ">
                       Primary Button
                     </button>
                   </div>
                   <div className="rounded-3xl ">
-                    <button className="px-8 py-3 rounded-full bg-[#212121] backdrop-blur-sm  text-white  hover:bg-[#282828] border border-[#3a3a3a]  font-thin transition">
+                    <button className="px-8 py-3 rounded-full bg-noticeai-dark-gray backdrop-blur-sm  text-white  hover:bg-noticeai-dark-gray/80 border border-[#3a3a3a]  font-thin transition">
                       Secondary Button
                     </button>
                   </div>
@@ -179,7 +178,7 @@ export default function NoticeAi() {
       </motion.div>
 
       {/* Lightbulb Moment Section */}
-      <div className="border-b border-b-[#dddddd] py-5">
+      <div className="border-b border-b-border-light py-5">
         <motion.div
           className="max-w-6xl mx-auto px-8 py-20 "
           initial={{ opacity: 0 }}
@@ -188,7 +187,7 @@ export default function NoticeAi() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex flex-row items-center justify-start mb-6">
-            <h2 className="text-2xl font-semibold text-[#333333] mr-2">
+            <h2 className="text-2xl font-semibold text-text-primary mr-2">
               Lightbulb moment
             </h2>
             <svg
@@ -197,7 +196,7 @@ export default function NoticeAi() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6 text-[#333333]"
+              className="w-6 h-6 text-text-primary"
             >
               <path
                 strokeLinecap="round"
@@ -207,16 +206,16 @@ export default function NoticeAi() {
             </svg>
           </div>
 
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             Finding public notices across the EU shouldn't be this hard. The data is out there — it's publicly available — but it's disconnected across dozens of government portals, each with its own format and outdated search tools. Businesses spend hours digging through irrelevant notices, and by the time they find something relevant, they've already missed the deadline. 
           </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
+          <p className="text-text-primary text-lg font-light leading-relaxed mt-4">
             I realized this was a perfect use case for AI-powered classification and filtering. By building a scraper that could collect procurement notices and categorize and prioritize them based on your search context, we could turn an inefficient manual process into an intelligent, automated system.        </p>
         </motion.div>
       </div>
 
       {/* Gallery Section - Modal Style */}
-      <div className="max-w-[100rem] mx-auto px-8 py-20 bg-[#fafafa]  border-b border-gray-200">
+      <div className="max-w-[100rem] mx-auto px-8 py-20 bg-background-main  border-b border-border-medium">
         {/* UI Highlights */}
         <motion.div
           className="max-w-8xl mx-auto mb-20"
@@ -225,7 +224,7 @@ export default function NoticeAi() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
+          <h2 className="text-2xl text-center font-semibold text-text-primary mb-16">
             UI Highlights
             <LineAnimation className="w-30 h-10 -mt-1"/>
           </h2>
@@ -241,7 +240,7 @@ export default function NoticeAi() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <motion.div
-                  className="relative w-full h-48 rounded-lg overflow-hidden shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
+                  className="relative w-full h-48 rounded-lg overflow-hidden shadow-sm border border-border-light cursor-pointer hover:shadow-lg transition-shadow"
                   whileHover={{ scale: 1.02 }}
                   onClick={() => setSelectedImage(x)}
                 >
@@ -302,10 +301,10 @@ export default function NoticeAi() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
+          <h2 className="text-2xl font-semibold text-text-primary mb-6">
             Context-aware search, instant results
           </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             Our smart search doesn't just match keywords — it understands context. Start typing a single letter and watch as results load dynamically in real-time, intelligently categorized by relevance. Whether you're searching by industry, region, or budget, the system understands the contextual meaning behind your query and displays the most relevant tenders immediately. It's search that actually understands what you're looking for.
           </p>
         </motion.div>
@@ -317,17 +316,17 @@ export default function NoticeAi() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
+          <h2 className="text-2xl font-semibold text-text-primary mb-6">
             Designed for Clarity
           </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
+          <p className="text-text-primary text-lg font-light leading-relaxed">
             Once users land on the search page, they can quickly scan through notices and immediately see what matters most — the country, publication date, and how close each deadline is.
           </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
+          <p className="text-text-primary text-lg font-light leading-relaxed mt-4">
             When a user finds one that fits, a single click opens all the key information in a clean, readable layout. From there, they can either visit the official source page or download the notice PDF directly to their computer.
           </p>
           <div className="flex py-10 flex-row">
-            <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
+            <p className="text-text-primary text-lg font-normal leading-relaxed mt-4">
               Searching through public tenders has never felt this simple — or this fast. Click 
               <a
               href="https://github.com/s4r4r4d"

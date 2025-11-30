@@ -27,15 +27,15 @@ export default function Contact() {
         
         try {
             await emailjs.send(
-                'service_hg19xrj',
-                'template_cxs3hkh',
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
                 {
                     to_email: 'sara.radojicic@gmail.com',
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
                 },
-                'gLbar4MQ5dKyruQmS'
+                process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
             );
             setStatus('Thank you for your message! I will get back to you as soon as possible.');
             setFormData({ name: '', email: '', message: ''});
@@ -48,7 +48,7 @@ export default function Contact() {
     };
 
     return(
-        <div className="min-h-screen border-b border-b-[#dddddd] pt-5 bg-white">
+        <div className="min-h-screen border-b border-b-border-light pt-5 bg-white">
             <div className="max-w-7xl mx-auto px-8 ">
                 <div className="flex flex-col-reverse sm:flex-row justify-center items-start py-5">
                     <motion.div 
@@ -57,8 +57,8 @@ export default function Contact() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-7xl font-semibold text-[#333333]">contact.</h1>
-                        <p className="text-[#757575] text-lg mt-1 mb-10 font-light">
+                        <h1 className="text-7xl font-semibold text-text-primary">contact.</h1>
+                        <p className="text-text-light text-lg mt-1 mb-10 font-light">
                             Get in touch with me via social media <br/>
                             or send me and email.
                         </p>
@@ -100,7 +100,7 @@ export default function Contact() {
                     </motion.div>
                 </div>
             </div>  
-            <div className="bg-[#fafafa] border-t border-t-[#dddddd]">
+            <div className="bg-background-main border-t border-t-border-light">
                 <motion.div 
                     className="max-w-7xl mx-auto px-8 py-20"
                     initial={{ opacity: 0, y: 30 }}
@@ -108,13 +108,13 @@ export default function Contact() {
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
                     <div className="flex flex-col items-center">
-                        <h2 className="text-4xl font-semibold text-[#333333] mb-12">Send me an email</h2>
+                        <h2 className="text-4xl font-semibold text-text-primary mb-12">Send me an email</h2>
 
                         <form onSubmit={handleSubmit} className="w-full">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
                                 <div className="flex flex-col gap-8">
                                     <div>
-                                        <label className="block text-[#333333] focus:outline-none font-normal mb-2">Name</label>
+                                        <label className="block text-text-primary focus:outline-none font-normal mb-2">Name</label>
                                         <input
                                             type="text"
                                             name="name"
@@ -126,7 +126,7 @@ export default function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label className="block text-[#333333] font-normal mb-2">Email</label>
+                                        <label className="block text-text-primary font-normal mb-2">Email</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -139,7 +139,7 @@ export default function Contact() {
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-[#333333] font-normal mb-2">Message</label>
+                                    <label className="block text-text-primary font-normal mb-2">Message</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
@@ -152,7 +152,7 @@ export default function Contact() {
                             </div>
 
                             {status && (
-                                <p className={`mb-4 ${status.includes('message') ? 'text-[#333333] font-light' : 'text-red-600'}`}>
+                                <p className={`mb-4 ${status.includes('message') ? 'text-text-primary font-light' : 'text-red-600'}`}>
                                     {status}
                                 </p>
                             )}
