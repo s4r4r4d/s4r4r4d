@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title
+
+A personal portfolio website built with Next.js and Taiilwind CSS, focused on showcasing design and front-end development projects.
 
 ## Getting Started
 
-First, run the development server:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+You need the following installed on your machine:
+Node.js (v18 or later recommended)
+npm (or yarn / pnpm)
+
+```
+node -v
+npm -v
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installing
+Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
+Install dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+npm run dev
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open your browser and navigate to:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+http://localhost:3000
+
+
+```
+You can begin editing the main page at:
+
+```
+app/page.tsx    
+
+```
+
+
+## Running the tests
+
+This project includes end-to-end tests written with Playwright to ensure the application behaves correctly from a user’s perspective.
+Tests cover core user flows, page rendering, and basic accessibility and interaction checks.
+
+### Break down into end to end tests
+
+To run the Playwright test suite:
+
+```
+npx playwright test
+
+```
+
+### And coding style tests
+
+To run tests in UI mode:
+
+```
+npx playwright test --ui
+
+To run tests in a specific browser:
+
+```
+npx playwright test --project=chromium
+
+```
+
+
+
+## Built With
+
+* [Next.js](https://nextjs.org/docs) - React framework
+* [React](https://react.dev) - UI library
+* [Tailwindcss](https://tailwindcss.com/docs/installation/using-vite) - Utility-first CSS framework
+* [Typescript](https://www.typescriptlang.org) - Type safety
+* [Playwright](https://playwright.dev) - End-to-end testing
+* [Cloudflare](https://www.cloudflare.com) - Hosting and deployment
+
+
+## Contributing
+
+This is a personal portfolio project and is not actively seeking external contributions.
+Feedback and suggestions are welcome.
+
+## Versioning
+
+This project follows [Semantic Versioning](https://semver.org/).
+
+## Authors
+
+* **Sara Radojičić** - *Initial work* - [s4r4r4d](https://github.com/s4r4r4d)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+

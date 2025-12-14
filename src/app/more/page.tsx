@@ -103,14 +103,7 @@ export default function StoryPage() {
             I believe great software starts with understanding people's needs. As a front-end developer, I combine technical expertise with user-centered design to build application that make sense.
           </p>
 
-          <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
-            Here's what I'll cover:
-          </h2>
-          <ul className="space-y-2 text-[#666666] mb-8">
-            <li>• Educationt that shaped me to think in business metrics, not just technical specs</li>
-            <li>• Building with purpose, not just pixels</li>
-            <li>• Where I'm headed next</li>
-          </ul>
+          
 
           <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
             Building with purpose, not just pixels.
@@ -123,10 +116,7 @@ export default function StoryPage() {
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
             I get genuinely excited when I can use both sides of my brain – when I'm not just coding 
             in isolation but understanding why users clicks where they click, what keeps them coming back, 
-            and how my code can make their experience better. <br></br>Some of my favorite projects have been the 
-            messy ones where I needed to dig into analytics, talk to actual users, and then build something 
-            that solved real problems. That's when coding feels less like work and more like solving puzzles 
-            that actually matter.
+            and how my code can make their experience better. <br></br>
           </p>
 
           <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
@@ -146,7 +136,7 @@ export default function StoryPage() {
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
             I want to keep building at the intersection of business and technology. Whether 
             that's front-end development, product management, leading software projects or something in between, I'm 
-            drawn to roles where understanding <b>both sides</b>is an advantage.
+            drawn to roles where understanding <b>both sides</b> is an advantage.
           </p>
           <p className="text-lg text-[#666666] font-light leading-relaxed">
             If you're working on something where this mindset would be valuable, I'd love to 
