@@ -1,4 +1,4 @@
-# Project Title
+# Personal Portfolio Website
 
 A personal portfolio website built with Next.js and Taiilwind CSS, focused on showcasing design and front-end development projects.
 
@@ -45,7 +45,6 @@ Open your browser and navigate to:
 ```
 http://localhost:3000
 
-
 ```
 You can begin editing the main page at:
 
@@ -76,14 +75,13 @@ To run tests in UI mode:
 ```
 npx playwright test --ui
 
+```
 To run tests in a specific browser:
 
 ```
 npx playwright test --project=chromium
 
 ```
-
-
 
 ## Built With
 
