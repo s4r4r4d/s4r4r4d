@@ -28,7 +28,7 @@ export default function SimpleGallery() {
           </motion.div>
 
           {/* IMAGE – hidden on phones */}
-          <motion.div
+          {/* <motion.div
             className="hidden sm:block w-80 mx-auto"     // ONLY visible on sm and up
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -42,7 +42,7 @@ export default function SimpleGallery() {
               className="w-full py-24 h-auto"
               priority
             />
-          </motion.div>
+          </motion.div> */}
 
         </div>
       </div>
