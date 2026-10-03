@@ -13,7 +13,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sara Radojicic | Frontend Developer",
+  title: "Sara Radojicic | Automation Developer",
+  description:
+    "Automation developer in Ljubljana. Software robots and AI agents that run business processes end to end for large enterprise clients.",
 };
 
 export default function RootLayout({
