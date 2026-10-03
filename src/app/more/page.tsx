@@ -44,7 +44,7 @@ export default function StoryPage() {
           />
           <div>
             <p className="text-[#333333] font-medium">Sara Radojicic</p>
-            <p className="text-[#999999] text-xs">November 2024</p>
+            <p className="text-[#999999] text-xs">November 2026</p>
           </div>
         </motion.div>
 
@@ -100,43 +100,45 @@ export default function StoryPage() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
-            I believe great software starts with understanding people's needs. As a front-end developer, I combine technical expertise with user-centered design to build application that make sense.
+            I believe great software starts with understanding people's needs.
           </p>
 
           
 
           <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
-            Building with purpose, not just pixels.
+            Building with purpose.
           </h2>
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
-            This mindset comes from my unique path - studying organization of information systems and business informatics for my master's taught me to see technology through business lens.<br></br>
-            Now, with 2+ years of hands-on experience as a developer I approach every project differently. When I'm building a feature, I'm not just thinking about clean code or smooth animations - I'm asking myself: How does this help business grow? What problem does this solve for users? 
-            <br></br> This perspective has made me a better developer and a more valuable teammate.
-          </p>
-          <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
-            I get genuinely excited when I can use both sides of my brain – when I'm not just coding 
-            in isolation but understanding why users clicks where they click, what keeps them coming back, 
-            and how my code can make their experience better. <br></br>
-          </p>
-
-          <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
-            What I do differently
-          </h2>
-          <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
-            Need someone who can dive into your analytics, identify the real problem, bring everyone along, and then build it? That's where I thrive. I focus on outcomes that matter – the kind that show up in  KPIs, not just  git commits.
-          </p>
-          <p className="text-lg font-light text-[#666666] leading-relaxed mb-6">
-            This isn't just about being a "good communicator." It's about solving the right 
-            problems, not just solving problems right.
+            This mindset comes from my unique path - a bachelor&apos;s in information technology, and now a master&apos;s in business informatics, taught me to see technology through a business lens.<br></br>
+            That is why I quite often ask myself: How does this help the business grow? What problem does this solve for users?<br></br>
+            This perspective has made me a better developer and a more valuable teammate.
           </p>
 
           <h2 className="text-2xl font-semibold text-[#333333] mt-12 mb-4">
             Where I'm headed
           </h2>
           <p className="text-lg text-[#666666] font-light leading-relaxed mb-6">
-            I want to keep building at the intersection of business and technology. Whether 
-            that's front-end development, product management, leading software projects or something in between, I'm 
-            drawn to roles where understanding <b>both sides</b> is an advantage.
+            The intersection of business and technology. I enjoy building and leading, and I 
+            lean toward product and project management roles, where my technical expertise 
+            meets my strength in building good relationships with people and businesses. I 
+            want to help{' '}
+            <motion.span
+              initial={{ backgroundSize: '0% 6px' }}
+              whileInView={{ backgroundSize: '100% 6px' }}
+              viewport={{ once: true, amount: 0.9 }}
+              transition={{ duration: 0.8, ease: [0.3, 0.9, 0.4, 1], delay: 0.3 }}
+              style={{
+                backgroundImage: `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6' preserveAspectRatio='none'><path d='M1 3.4 C 45 2.2 90 4.4 134 3 C 162 2.1 182 3.5 199 2.6' stroke='%23D1514A' stroke-width='1.1' fill='none' stroke-linecap='round'/></svg>")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '0 100%',
+                paddingBottom: '4px',
+                boxDecorationBreak: 'clone',
+                WebkitBoxDecorationBreak: 'clone',
+              }}
+            >
+              shape both the product and the team behind it
+            </motion.span>
+            .
           </p>
           <p className="text-lg text-[#666666] font-light leading-relaxed">
             If you're working on something where this mindset would be valuable, I'd love to 

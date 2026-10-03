@@ -16,52 +16,30 @@ export default function Hero() {
   const controls = useAnimation();
 
   useEffect(() => {
-    // Initial animation on mount - sweep from left to right
     const animateInitial = async () => {
-      await controls.start({
-        transition: {
-          duration: 2,
-          ease: 'easeInOut',
-        },
-      });
+      await controls.start({ transition: { duration: 2, ease: 'easeInOut' } });
       setHasAnimated(true);
     };
-
     animateInitial();
   }, [controls]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!hasAnimated) return; // Don't allow mouse control until initial animation is done
-
-      // ignore on small screens – they have their own static layout
-      if (window.innerWidth < 768) return;
+      if (!hasAnimated) return;
+      if (window.innerWidth < 768) return; // phones have their own layout
 
       const percentage = (e.clientX / window.innerWidth) * 100;
 
       if (leftHalfRef.current) {
         leftHalfRef.current.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
       }
-
       if (rightHalfRef.current) {
         rightHalfRef.current.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
       }
-
-      // Designer fades when going RIGHT (to coder side)
-      if (designerTextRef.current) {
-        designerTextRef.current.style.opacity = String(percentage / 100);
-      }
-      if (designerImageRef.current) {
-        designerImageRef.current.style.opacity = String(percentage / 100);
-      }
-
-      // Coder fades when going LEFT (to designer side)
-      if (coderTextRef.current) {
-        coderTextRef.current.style.opacity = String(1 - percentage / 100);
-      }
-      if (coderImageRef.current) {
-        coderImageRef.current.style.opacity = String(1 - percentage / 100);
-      }
+      if (designerTextRef.current) designerTextRef.current.style.opacity = String(percentage / 100);
+      if (designerImageRef.current) designerImageRef.current.style.opacity = String(percentage / 100);
+      if (coderTextRef.current) coderTextRef.current.style.opacity = String(1 - percentage / 100);
+      if (coderImageRef.current) coderImageRef.current.style.opacity = String(1 - percentage / 100);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -75,26 +53,62 @@ export default function Hero() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* MOBILE / SMALL: static portrait + two titles */}
-      <div className="flex flex-col items-center md:hidden py-8">
-        <div className="relative w-full max-w-xs aspect-3/4 rounded-lg overflow-hidden mb-4">
-          <Image
-            src="/sara.png"
-            alt="Portrait"
-            fill
-            className="object-cover"
-            priority
-          />
+      {/* PHONES: the painted portrait, wiped in. No cursor here, so no split. */}
+      <div className="flex flex-col items-center md:hidden py-6">
+        <div className="relative w-full max-w-[18rem] aspect-square">
+          {/* painted half */}
+          <motion.div
+            className="absolute inset-0 w-full h-full"
+            initial={{ clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)' }}
+            animate={{ clipPath: 'polygon(0 0, 50% 0, 50% 100%, 0 100%)' }}
+            transition={{ duration: 1.8, ease: 'easeInOut', delay: 0.2 }}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src="/portrait-colored-fixed.png"
+                alt="Designer"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          {/* photo half */}
+          <motion.div
+            className="absolute inset-0 w-full h-full"
+            initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
+            animate={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 50% 100%)' }}
+            transition={{ duration: 1.8, ease: 'easeInOut', delay: 0.2 }}
+          >
+            <div className="relative w-full h-full -translate-y-[3.7%]">
+              <Image
+                src="/sara.png"
+                alt="Coder"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </motion.div>
         </div>
-        <h2 className="text-2xl font-normal text-[#333333] mt-5 leading-tight">
-          automation developer &
-        </h2>
-        <h2 className="text-2xl font-normal text-[#333333] leading-tight">
-          ai agents
-        </h2>
+
+        <motion.div
+          className="flex flex-col items-center text-center mt-5"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1, ease: 'easeOut' }}
+        >
+          <h2 className="text-2xl font-normal text-[#333333] leading-tight">
+            developer &amp; project manager
+          </h2>
+          <p className="text-[#757575] font-light text-sm max-w-xs mt-3">
+            I build the automations, and I own the process around them end to end.
+          </p>
+        </motion.div>
       </div>
 
-
+      {/* DESKTOP: the split portrait the cursor sweeps across */}
       <div className="hidden md:flex items-center justify-center relative">
         <motion.div
           ref={designerTextRef}
@@ -103,15 +117,13 @@ export default function Hero() {
           animate={{ opacity: 0.5, x: 0 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
         >
-          <h2 className="text-5xl font-semibold text-[#333333] mb-2">automation</h2>
+          <h2 className="text-5xl font-semibold text-[#333333] mb-2">developer</h2>
           <p className="text-[#333333] font-light text-base max-w-xs">
-            Software robots that run business processes end to end, for large enterprises.
+            Software robots and AI agents that run business processes for large enterprises.
           </p>
         </motion.div>
 
-        {/* Center Image */}
         <div className="relative w-150 h-150 rounded-lg z-10">
-          {/* Behind image - designer work */}
           <motion.div
             ref={designerImageRef}
             className="absolute inset-0 transition-opacity duration-100 z-0"
@@ -129,7 +141,7 @@ export default function Hero() {
           >
             <Image
               src="/colours.png"
-              alt="Designer work"
+              alt=""
               width={400}
               height={400}
               className="w-full h-full object-cover rounded-lg"
@@ -137,7 +149,6 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* Left half - colored portrait */}
           <motion.div
             ref={leftHalfRef}
             className="absolute inset-0 w-full h-full z-20"
@@ -161,7 +172,6 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right half - coder portrait */}
           <motion.div
             ref={rightHalfRef}
             className="absolute inset-0 w-full h-full z-20"
@@ -170,8 +180,7 @@ export default function Hero() {
             transition={{ duration: 2, ease: 'easeInOut' }}
           >
             <motion.div
-              className="relative w-full h-full"
-              style={{ transform: 'translateY(-22px)' }}
+              className="relative w-full h-full -translate-y-[3.7%]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -196,13 +205,13 @@ export default function Hero() {
         >
           <h2 className="text-5xl font-semibold text-[#333333] mb-2">
             <span className="font-semibold">
-              ai
+              project
               <br />
-              agents
+              manager
             </span>
           </h2>
           <p className="text-[#333333] text-base font-light max-w-xs">
-            Autonomous systems for the judgment-heavy work that rule-based automation cannot touch.
+            Working with the client to decide what to automate, then owning it to production.
           </p>
         </motion.div>
       </div>

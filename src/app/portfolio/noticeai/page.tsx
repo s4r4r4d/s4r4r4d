@@ -1,352 +1,179 @@
 'use client';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import WorldMapAnimation from '@/app/components/WorldMapAnimation';
-import LineAnimation from '@/app/components/LineAnimation';
-import { useState } from 'react';
-  const galleryImages = [
-    { 
-      thumbnail: '/thumbnail5.png', // Thumbnail image
-      fullscreen: '/listofnotices.png', // Modal image
-      alt: 'List of notices'
-    },
-    { 
-      thumbnail: '/b.png',
-      fullscreen: '/proj1.png',
-      alt: 'NoticeAI project showcase',
 
-    },
-    { 
-      thumbnail: '/thumbnail2.png',
-      fullscreen: '/noticeslisted.png',
-      alt: 'NoticeAI notices listed'
-    },
-    { 
-      thumbnail: '/c.png',
-      fullscreen: '/testimonials.png',
-      alt: 'NoticeAI testimonials'
-    },
-    { 
-      thumbnail: '/smartsearchy.png',
-      fullscreen: '/smartsearchy.png',
-      alt: 'NoticeAI smart search'
-    },
-  ];
-
-export default function NoticeAi() {
- const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
-
-
+export default function NoticeAI() {
+  const fade = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.3 },
+    transition: { duration: 0.7 },
+  };
 
   return (
-    <div className="min-h-screen py-10 bg-white">
- 
-      <motion.div 
-        className="w-full border-b border-b-[#dddddd]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-6xl mx-auto px-8 py-20">
-          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-12">
-            <motion.div
-              className="flex-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            >
-              <h1 className="text-3xl font-normal text-[#333333] leading-tight mb-6">
-                AI-powered platform for discovering <br></br> public notices across Europe.
-              </h1>
-              <div className="relative mb-8">
-                <div className="w-full h-px bg-[#dddddd]" />
-                <div className="flex justify-between mt-3">
-                  <span className="text-[#666666] text-lg font-light">NoticeAI</span>
-                  <span className="text-[#666666] text-lg font-light">January 2025</span>
-                </div>
-              </div>
-              <p className="text-[#333333] text-lg font-light leading-relaxed max-w-xl">
-                A friend and I developed <span className="font-medium">NoticeAI</span>, an
-                AI-powered platform that scrapes and filters public procurement
-                notices. It helps businesses discover relevant tenders faster by classifying and
-                prioritizing opportunities based on custom criteria. Built with Next.js, Python & used Keycloak for user authentication.
-              </p>
-            </motion.div>
-            <motion.div
-              className="flex-1 flex justify-center lg:justify-end items-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            >
-              <div className="w-[280px] sm:w-[400px] md:w-[500px]"> 
-                <WorldMapAnimation />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Design System Section */}
-      <motion.div 
-        className="w-full bg-[#fafafa] py-28 border-b border-gray-200"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
-            Design System
-            <LineAnimation className="w-30 h-10 -mt-1"/>
-          </h2>
-
-          {/* Design System Content */}
-          <div>
-            {/* Color Palette */}
-            <div className="mb-16">
-              <h4 className="text-lg font-medium text-[#333333] mb-6">Color Palette</h4>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {[
-                  { name: 'Primary Color', hex: '#e6358d' },
-                  { name: 'Light Gray', hex: '#212121' },
-                  { name: 'Secondary Color', hex: '#4f3442' },
-                  { name: 'Light Text', hex: '#edf1f2' },
-                  { name: 'Borders', hex: '#DDDDDD'},
-                ].map((color) => (
-                  <div key={color.hex} className="flex flex-col">
-                    <div
-                      className="w-full h-24 rounded-lg shadow-sm border border-[#eeeeee] mb-3"
-                      style={{ backgroundColor: color.hex }}
-                    />
-                    <p className="text-[#333333] font-medium text-sm">{color.name}</p>
-                    <p className="text-[#666666] text-xs">{color.hex}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Typography + Components Grid */}
-            <div className="flex flex-col lg:flex-row gap-12">
-              {/* Left - Typography */}
-              <div className="flex-1">
-                <h4 className="text-lg font-medium text-[#333333] mb-6">Typography</h4>
-                <div className="space-y-6">
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-3xl font-semibold text-[#333333] mb-2">Heading 1</p>
-                    <p className="text-sm text-[#666666]">32px / Font Weight: 600 / Line Height: 1.2</p>
-                  </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-2xl font-semibold text-[#333333] mb-2">Heading 2</p>
-                    <p className="text-sm text-[#666666]">24px / Font Weight: 600 / Line Height: 1.3</p>
-                  </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-normal mb-2">Body Text Regular</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 400 / Line Height: 1.6</p>
-                  </div>
-                  <div className="border-l-4 border-[#e6358d] pl-6 py-4">
-                    <p className="text-lg text-[#333333] font-light mb-2">Body Text Light</p>
-                    <p className="text-sm text-[#666666]">18px / Font Weight: 300 / Line Height: 1.6</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right - Components */}
-              <motion.div
-                className="flex-1"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h4 className="text-lg font-medium text-center text-[#333333] mb-6">Components</h4>
-                <div className="space-y-2">
-                  <div className="py-10 rounded-3xl ">
-                    <button className="px-8 rounded-full bg-[#e6358c] font-thin py-3 hover:bg-[#c0276b] text-white ring-1 ring-white/15  transition ">
-                      Primary Button
-                    </button>
-                  </div>
-                  <div className="rounded-3xl ">
-                    <button className="px-8 py-3 rounded-full bg-[#212121] backdrop-blur-sm  text-white  hover:bg-[#282828] border border-[#3a3a3a]  font-thin transition">
-                      Secondary Button
-                    </button>
-                  </div>
-                  
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Lightbulb Moment Section */}
-      <div className="border-b border-b-[#dddddd] py-5">
-        <motion.div
-          className="max-w-6xl mx-auto px-8 py-20 "
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="flex flex-row items-center justify-start mb-6">
-            <h2 className="text-2xl font-semibold text-[#333333] mr-2">
-              Lightbulb moment
-            </h2>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-[#333333]"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
-              />
-            </svg>
-          </div>
-
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
-            Finding public notices across the EU shouldn't be this hard. The data is out there — it's publicly available — but it's disconnected across dozens of government portals, each with its own format and outdated search tools. Businesses spend hours digging through irrelevant notices, and by the time they find something relevant, they've already missed the deadline. 
-          </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
-            I realized this was a perfect use case for AI-powered classification and filtering. By building a scraper that could collect procurement notices and categorize and prioritize them based on your search context, we could turn an inefficient manual process into an intelligent, automated system.        </p>
-        </motion.div>
-      </div>
-
-      {/* Gallery Section - Modal Style */}
-      <div className="max-w-[100rem] mx-auto px-8 py-20 bg-[#fafafa]  border-b border-gray-200">
-        {/* UI Highlights */}
-        <motion.div
-          className="max-w-8xl mx-auto mb-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl text-center font-semibold text-[#333333] mb-16">
-            UI Highlights
-            <LineAnimation className="w-30 h-10 -mt-1"/>
-          </h2>
-
-          {/* Five Images Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
-            {galleryImages.map((x, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <motion.div
-                  className="relative w-full h-48 rounded-lg overflow-hidden shadow-sm border border-[#dddddd] cursor-pointer hover:shadow-lg transition-shadow"
-                  whileHover={{ scale: 1.02 }}
-                  onClick={() => setSelectedImage(x)}
-                >
-                  <Image
-                    src={x.thumbnail}
-                    alt={x.alt}
-                    fill
-                    className="object-cover "
-                  />
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Modal for enlarged image */}
-        {selectedImage && (
+    <div className="min-h-screen bg-white">
+      <div className="w-full border-b border-b-[#dddddd]">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 pt-24 pb-16">
           <motion.div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            transition={{ duration: 0.8 }}
           >
-            <motion.div
-              className="relative max-w-4xl max-h-[90vh] w-full"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={selectedImage.fullscreen}
-                alt={selectedImage.alt}
-                width={1200}
-                height={800}
-                className="w-full h-auto rounded-lg"
-              />
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-10 right-0 text-white text-2xl font-light hover:text-gray-300"
-              >
-                ✕
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </div>
-
-      {/* Content Sections */}
-      <div className="max-w-7xl mx-auto px-8 py-20">
-
-        {/* Context-aware Search Section */}
-        <motion.div
-          className="max-w-3xl mx-auto "
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
-            Context-aware search, instant results
-          </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
-            Our smart search doesn't just match keywords — it understands context. Start typing a single letter and watch as results load dynamically in real-time, intelligently categorized by relevance. Whether you're searching by industry, region, or budget, the system understands the contextual meaning behind your query and displays the most relevant tenders immediately. It's search that actually understands what you're looking for.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="max-w-3xl pt-20 mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-2xl font-semibold text-[#333333] mb-6">
-            Designed for Clarity
-          </h2>
-          <p className="text-[#333333] text-lg font-light leading-relaxed">
-            Once users land on the search page, they can quickly scan through notices and immediately see what matters most — the country, publication date, and how close each deadline is.
-          </p>
-          <p className="text-[#333333] text-lg font-light leading-relaxed mt-4">
-            When a user finds one that fits, a single click opens all the key information in a clean, readable layout. From there, they can either visit the official source page or download the notice PDF directly to their computer.
-          </p>
-          <div className="flex py-10 flex-row">
-            <p className="text-[#333333] text-lg font-normal leading-relaxed mt-4">
-              Searching through public tenders has never felt this simple — or this fast. Click 
-              <a
-              href="https://github.com/s4r4r4d"
-              target="_blank"
-              rel="noopener noreferrer">
-              <u> here </u>
-              </a>
-               to view this project on my github.
-              <Image
-                src="/github.png"
-                alt="github"
-                width={20}
-                height={20}
-                className="w-5 h-5 inline-block ml-2 mb-1 object-contain"
-              />
+            <h1 className="text-3xl sm:text-4xl font-normal text-[#333333] leading-tight mb-6">
+              Semantic search over European public tenders
+            </h1>
+            <div className="relative mb-8">
+              <div className="w-full h-px bg-[#dddddd]" />
+              <div className="flex justify-between mt-3">
+                <span className="text-[#666666] text-lg font-light">AI &amp; full stack</span>
+                <span className="text-[#666666] text-lg font-light">2025</span>
+              </div>
+            </div>
+            <p className="text-[#333333] text-lg font-light leading-relaxed max-w-2xl">
+              Public tenders are published across dozens of national portals, in dozens of
+              languages. Keyword search misses anything phrased differently to how you
+              searched for it. This platform scrapes EU and Slovenian tender portals,
+              translates every notice, and lets you search by meaning rather than by keyword.
             </p>
-          </div>
-        </motion.div>
+            <p className="text-[#999999] text-sm font-light mt-6 max-w-2xl">
+              A two-person project. I built the frontend and added pagination to the notices
+              API; the scraping, translation and embedding services are my collaborator&apos;s work.
+            </p>
+          </motion.div>
+        </div>
       </div>
+
+      <motion.section {...fade} className="w-full bg-[#fafafa] border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+          <p className="text-xs uppercase tracking-widest text-[#999999] mb-10">the pipeline</p>
+
+          <svg viewBox="0 0 760 260" className="w-full h-auto max-w-3xl" role="img"
+               aria-label="Pipeline: two scrapers feed a translator, then an embedder, into a Postgres database with pgvector, which serves a search API and the frontend.">
+            <defs>
+              <marker id="na" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#B0B0B0" />
+              </marker>
+              <style>{`
+                .nt { font-size: 11px; fill: #333333; }
+                .ns { font-size: 8.5px; fill: #999999; }
+                .ne { stroke: #B0B0B0; fill: none; }
+              `}</style>
+            </defs>
+
+            <rect x="0" y="12" width="150" height="48" rx="6" fill="#FFFFFF" stroke="#DDDDDD" />
+            <text x="75" y="34" textAnchor="middle" className="nt">TED</text>
+            <text x="75" y="48" textAnchor="middle" className="ns">EU tenders daily</text>
+
+            <rect x="0" y="80" width="150" height="48" rx="6" fill="#FFFFFF" stroke="#DDDDDD" />
+            <text x="75" y="102" textAnchor="middle" className="nt">eNaročanje</text>
+            <text x="75" y="116" textAnchor="middle" className="ns">Slovenian portal</text>
+
+            <path d="M 150 36 L 180 36 L 180 70 L 206 70" className="ne" markerEnd="url(#na)" />
+            <path d="M 150 104 L 180 104 L 180 70" className="ne" />
+
+            <rect x="210" y="46" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#DDDDDD" />
+            <text x="280" y="68" textAnchor="middle" className="nt">translate</text>
+            <text x="280" y="82" textAnchor="middle" className="ns">everything to English</text>
+
+            <line x1="350" y1="70" x2="386" y2="70" className="ne" markerEnd="url(#na)" />
+
+            <rect x="390" y="46" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#333333" strokeWidth="1.2" />
+            <text x="460" y="68" textAnchor="middle" className="nt">embed</text>
+            <text x="460" y="82" textAnchor="middle" className="ns">1024-dim vectors</text>
+
+            <path d="M 530 70 L 566 70 L 566 110 L 390 110 L 390 136" className="ne" markerEnd="url(#na)" />
+
+            <rect x="250" y="140" width="280" height="48" rx="6" fill="#FAFAFA" stroke="#DDDDDD" />
+            <text x="390" y="162" textAnchor="middle" className="nt">Postgres + pgvector</text>
+            <text x="390" y="176" textAnchor="middle" className="ns">notices, translations, embeddings</text>
+
+            <line x1="390" y1="188" x2="390" y2="206" className="ne" markerEnd="url(#na)" />
+
+            <rect x="250" y="210" width="280" height="44" rx="6" fill="#FFFFFF" stroke="#333333" strokeWidth="1.2" />
+            <text x="390" y="230" textAnchor="middle" className="nt">search</text>
+            <text x="390" y="244" textAnchor="middle" className="ns">by meaning, country and CPV code</text>
+          </svg>
+
+          <p className="text-[#666666] text-lg font-light leading-relaxed max-w-2xl mt-12">
+            Every service runs as its own container with a background loop: the scrapers look
+            for new notices, the translator picks up anything not yet translated, the embedder
+            picks up anything not yet embedded. Nothing waits on anything else.
+          </p>
+        </div>
+      </motion.section>
+
+      <motion.section {...fade} className="w-full border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+          <p className="text-xs uppercase tracking-widest text-[#999999] mb-5">how the search works</p>
+          <p className="text-[#333333] text-lg font-light leading-relaxed max-w-2xl mb-8">
+            Typing a query does not look for those words. The query is translated, turned into
+            a vector, and compared against every notice by cosine distance &mdash; so a search
+            for <span className="italic">road maintenance</span> also returns a notice about
+            resurfacing works, even though it shares no words with the query.
+          </p>
+          <p className="text-[#666666] text-lg font-light leading-relaxed max-w-2xl">
+            Hard filters run first: country, and CPV code, the EU&apos;s own procurement
+            classification. The meaning-based ranking is applied to what survives, which keeps
+            the results both relevant and genuinely narrow.
+          </p>
+        </div>
+      </motion.section>
+
+      <motion.section {...fade} className="w-full bg-[#fafafa] border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+          <p className="text-xs uppercase tracking-widest text-[#999999] mb-10">my part</p>
+
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8 max-w-3xl">
+            {[
+              {
+                h: 'Pagination, then the thing that consumes it',
+                p: 'The notices endpoint returned everything in one response. I added paging to it on the Python side, then built the infinite scroll that reads it \u2014 an IntersectionObserver on a sentinel element that pulls the next page as it comes into view.',
+              },
+              {
+                h: 'Three ways to browse',
+                p: 'Everything, by country, or by CPV code \u2014 the EU procurement classification. Each tab loads its own filter list from the API, and picking one re-queries the search endpoint rather than filtering in the browser.',
+              },
+              {
+                h: 'Filters that live in the URL',
+                p: 'The active tab and filter are read from and written to the query string, so a filtered view is a link. You can send someone every open tender in a category instead of telling them which boxes to tick.',
+              },
+              {
+                h: 'Search as a modal',
+                p: 'The semantic search sits over whatever you are already looking at rather than on its own page, so you can try a phrasing, see what comes back, and go straight back to browsing.',
+              },
+              {
+                h: 'Search that non-experts can use',
+                p: 'CPV codes and country IDs are not how people think about tenders. The filtering UI had to hide that without taking the precision away.',
+              },
+              {
+                h: 'Containerised alongside the rest',
+                p: 'Wiring the frontend into the Docker Compose stack so the whole system comes up with one command. Around 5,900 lines across 37 files.',
+              },
+            ].map((b) => (
+              <div key={b.h}>
+                <h3 className="text-[#333333] font-medium mb-2">{b.h}</h3>
+                <p className="text-[#666666] font-light leading-relaxed">{b.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section {...fade} className="w-full">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 py-20">
+          <p className="text-xs uppercase tracking-widest text-[#999999] mb-8">stack</p>
+          <div className="flex flex-wrap gap-2 max-w-3xl">
+            {[
+              'Next.js', 'TypeScript', 'Tailwind', 'shadcn/ui', 'framer-motion',
+              'FastAPI', 'Python', 'PostgreSQL', 'pgvector', 'SQLAlchemy', 'Alembic',
+              'sentence-transformers', 'Keycloak', 'Docker Compose',
+            ].map((t) => (
+              <span key={t} className="text-sm text-[#666666] border border-[#dddddd] rounded-full px-4 py-1.5 bg-white">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 }

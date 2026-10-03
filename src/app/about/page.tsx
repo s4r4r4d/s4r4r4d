@@ -10,10 +10,10 @@ export default function SimpleGallery() {
 
   return(
     <div className="min-h-screen border-b border-b-[#dddddd] pt-5 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 border-b border-b-[#dddddd]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex flex-col-reverse sm:flex-row justify-center items-start py-5">
           <motion.div 
-            className="mx-auto py-20"
+            className="w-full min-w-0 sm:w-auto mx-auto py-20"
             initial={{ opacity: 0, }}
             animate={{ opacity: 1}}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -21,6 +21,7 @@ export default function SimpleGallery() {
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-[#333333]">about.</h1>
             <p className="text-[#757575] text-base sm:text-lg mt-1 mb-10 font-light max-w-prose">
               I&apos;m an automation developer based in Ljubljana - a small green capital tucked between the Alps and the Adriatic.
+              <span className="ml-1.5" role="img" aria-label="mountains">🏔️</span>
             </p>
             <div className="text-[#333333] text-base sm:text-lg font-light max-w-prose space-y-6">
               <p>

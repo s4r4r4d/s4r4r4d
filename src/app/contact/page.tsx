@@ -5,6 +5,8 @@ import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+const EMAIL = 'sara.radojicic@gmail.com';
+
 export default function Contact() {
     const [formData, setFormData] = useState({
         name: '',
@@ -12,7 +14,7 @@ export default function Contact() {
         message: ''
     });
     const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({
@@ -24,68 +26,74 @@ export default function Contact() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        
+        setStatus(null);
+
         try {
             await emailjs.send(
                 'service_hg19xrj',
                 'template_cxs3hkh',
                 {
-                    to_email: 'sara.radojicic@gmail.com',
+                    to_email: EMAIL,
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
                 },
                 'gLbar4MQ5dKyruQmS'
             );
-            setStatus('Thank you for your message! I will get back to you as soon as possible.');
-            setFormData({ name: '', email: '', message: ''});
+            setStatus({ ok: true, text: 'Thank you for your message. I will get back to you as soon as possible.' });
+            setFormData({ name: '', email: '', message: '' });
         } catch (error) {
-            setStatus('Failed to send email. Please try again later.');
-            console.error(error);
+            // surface what actually failed instead of a generic message
+            const detail = (error as { text?: string })?.text;
+            setStatus({
+                ok: false,
+                text: detail
+                    ? `Could not send: ${detail}. Please write to me directly at ${EMAIL}.`
+                    : `Could not send your message. Please write to me directly at ${EMAIL}.`,
+            });
+            console.error('EmailJS send failed', error);
         } finally {
             setLoading(false);
         }
     };
 
-    return(
-        <div className="min-h-screen border-b border-b-[#dddddd] pt-5 bg-white">
-            <div className="max-w-7xl mx-auto px-8 ">
-                <div className="flex flex-col-reverse sm:flex-row justify-center items-start py-5">
-                    <motion.div 
-                        className="mx-auto py-20"
+    const field = 'w-full bg-transparent border-0 border-b border-[#dddddd] px-0 py-3 text-[#333333] ' +
+        'placeholder:text-[#c4c4c4] font-light focus:outline-none focus:border-[#333333] transition-colors';
+    const labelCls = 'block text-xs uppercase tracking-widest text-[#999999] mb-1';
+
+    return (
+        <div className="border-b border-b-[#dddddd] pt-10 sm:pt-14 bg-white">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8">
+                <div className="flex flex-col-reverse sm:flex-row justify-center items-center gap-6 sm:gap-16 py-2">
+                    <motion.div
+                        className="w-full min-w-0 sm:w-auto mx-auto py-10"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-[#333333]">contact.</h1>
-                        <p className="text-[#757575] text-base sm:text-lg mt-1 mb-10 font-light max-w-prose">
-                            Get in touch with me via social media
-                            or send me and email.
-                        </p>
-                      
-                        <motion.div 
-                            className="flex gap-8"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        >
+                        <p className="text-[#757575] text-base sm:text-lg mt-1 font-light max-w-prose">
+                            Get in touch with me via{' '}
                             <a
-                                href="https://www.linkedin.com/in/sara-radojicic-110360383/"
+                                href="https://www.linkedin.com/in/sara-radojicic/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center hover:opacity-70 transition">
-                                <Image
-                                    src="/linkedin.png"
-                                    alt="LinkedIn"
-                                    width={24}
-                                    height={24}
-                                    priority
-                                />
+                                className="text-[#333333] border-b border-[#cccccc] hover:border-[#333333] transition-colors"
+                            >
+                                LinkedIn
                             </a>
-                        </motion.div>
+                            {' '}or{' '}
+                            <a
+                                href="#email"
+                                className="text-[#333333] border-b border-[#cccccc] hover:border-[#333333] transition-colors"
+                            >
+                                send me an email
+                            </a>
+                            .
+                        </p>
                     </motion.div>
-                    <motion.div 
-                        className="w-80 mx-auto"
+                    <motion.div
+                        className="w-full max-w-[18rem] sm:max-w-xs mx-auto pt-4 sm:pt-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -99,70 +107,98 @@ export default function Contact() {
                         />
                     </motion.div>
                 </div>
-            </div>  
-            <div className="bg-[#fafafa] border-t border-t-[#dddddd]">
-                <motion.div 
-                    className="max-w-7xl mx-auto px-8 py-20"
+            </div>
+            <div id="email" className="bg-[#fafafa] border-t border-t-[#dddddd] scroll-mt-20">
+                <motion.div
+                    className="max-w-6xl mx-auto px-6 sm:px-8 py-16"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 >
-                    <div className="flex flex-col items-center">
-                        <h2 className="text-4xl font-semibold text-[#333333] mb-12">Send me an email</h2>
+                    <div className="grid lg:grid-cols-[0.75fr_1fr] gap-12 lg:gap-24">
+                        <div>
+                            <h2 className="text-4xl sm:text-5xl font-semibold text-[#333333] mb-4">
+                                Send me an email
+                            </h2>
+                            <p className="text-[#757575] font-light leading-relaxed">
+                                Tell me what you are working on and I will get back to you.
+                            </p>
+                        </div>
 
                         <form onSubmit={handleSubmit} className="w-full">
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
-                                <div className="flex flex-col gap-8">
-                                    <div>
-                                        <label className="block text-[#333333] focus:outline-none font-normal mb-2">Name</label>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            placeholder="Ana Novak"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 border rounded-lg bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-[#333333] font-normal mb-2">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            placeholder="example@gmail.com"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-4 py-3 rounded-lg bg-white border focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
-                                        />
-                                    </div>
+                            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-8">
+                                <div>
+                                    <label htmlFor="name" className={labelCls}>Name</label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        name="name"
+                                        placeholder="Ana Novak"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
+                                        className={field}
+                                    />
                                 </div>
                                 <div>
-                                    <label className="block text-[#333333] font-normal mb-2">Message</label>
+                                    <label htmlFor="email" className={labelCls}>Email</label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        placeholder="example@gmail.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                        className={field}
+                                    />
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="message" className={labelCls}>Message</label>
                                     <textarea
+                                        id="message"
                                         name="message"
+                                        placeholder="What are you working on?"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows={6}
-                                        className="w-full px-4 py-3 border rounded-lg bg-white focus:outline-none border-gray-300 focus:ring-2 focus:ring-gray-200"
+                                        rows={5}
+                                        className={`${field} resize-none`}
                                     />
                                 </div>
                             </div>
 
                             {status && (
-                                <p className={`mb-4 ${status.includes('message') ? 'text-[#333333] font-light' : 'text-red-600'}`}>
-                                    {status}
+                                <p className={`mt-8 text-sm font-light ${status.ok ? 'text-[#333333]' : 'text-[#D1514A]'}`}>
+                                    {status.text}
                                 </p>
                             )}
-                            <div className="flex justify-center sm:justify-end">
+
+                            <div className="flex justify-start sm:justify-end mt-10">
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="bg-gray-800 text-white px-8 py-3 rounded-lg font-normal hover:bg-gray-900 transition disabled:opacity-70 w-50"
+                                    className="group relative overflow-hidden rounded-full bg-[#333333] px-10 py-4
+                                               text-sm tracking-wide text-white
+                                               disabled:opacity-50 disabled:pointer-events-none"
                                 >
-                                    {loading ? 'Sending...' : 'Send message'}
+                                    <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0 translate-y-full bg-[#9E3B37]
+                                                   transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]
+                                                   group-hover:translate-y-0"
+                                    />
+                                    <span className="relative block h-5 overflow-hidden leading-5">
+                                        <span className="block transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:-translate-y-5">
+                                            {loading ? 'Sending' : 'Send message'}
+                                        </span>
+                                        <span
+                                            aria-hidden="true"
+                                            className="block transition-transform duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:-translate-y-5"
+                                        >
+                                            {loading ? 'Sending' : 'Send message'}
+                                        </span>
+                                    </span>
                                 </button>
                             </div>
                         </form>
