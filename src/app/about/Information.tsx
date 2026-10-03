@@ -48,7 +48,7 @@ export default function MoreAboutMe(){
               My story
             </h2>
             <p className="font-normal text-[#666666] leading-relaxed mb-6">
-              Learn a little bit more about me - how I got into tech, and how I'm building my career as a front-end developer. I've included key things I've learned, my educational path, and the direction I want to develop professionally in the future.
+              Learn a little bit more about me - how I got into tech, and see where I'm heading next. I've included key things I've learned, my educational path, and the direction I want to develop professionally in the future.
             </p>
             <Link href="/more" className="text-[#333333] font-light underline hover:text-[#666666] transition">
               Read my story

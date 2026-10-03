@@ -87,10 +87,10 @@ export default function Hero() {
           />
         </div>
         <h2 className="text-2xl font-normal text-[#333333] mt-5 leading-tight">
-          frontend developer &
+          automation developer &
         </h2>
         <h2 className="text-2xl font-normal text-[#333333] leading-tight">
-          product designer
+          ai agents
         </h2>
       </div>
 
@@ -103,9 +103,9 @@ export default function Hero() {
           animate={{ opacity: 0.5, x: 0 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
         >
-          <h2 className="text-5xl font-semibold text-[#333333] mb-2">designer</h2>
+          <h2 className="text-5xl font-semibold text-[#333333] mb-2">automation</h2>
           <p className="text-[#333333] font-light text-base max-w-xs">
-            Product designer specialising in UI design and design systems.
+            Software robots that run business processes end to end, for large enterprises.
           </p>
         </motion.div>
 
@@ -196,13 +196,13 @@ export default function Hero() {
         >
           <h2 className="text-5xl font-semibold text-[#333333] mb-2">
             <span className="font-semibold">
-              frontend
+              ai
               <br />
-              developer
+              agents
             </span>
           </h2>
           <p className="text-[#333333] text-base font-light max-w-xs">
-            Front end developer who writes clean, elegant and efficient code.
+            Autonomous systems for the judgment-heavy work that rule-based automation cannot touch.
           </p>
         </motion.div>
       </div>

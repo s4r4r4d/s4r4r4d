@@ -57,9 +57,9 @@ export default function Contact() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <h1 className="text-7xl font-semibold text-[#333333]">contact.</h1>
-                        <p className="text-[#757575] text-lg mt-1 mb-10 font-light">
-                            Get in touch with me via social media <br/>
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold text-[#333333]">contact.</h1>
+                        <p className="text-[#757575] text-base sm:text-lg mt-1 mb-10 font-light max-w-prose">
+                            Get in touch with me via social media
                             or send me and email.
                         </p>
                       

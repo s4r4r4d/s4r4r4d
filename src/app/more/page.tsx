@@ -20,7 +20,7 @@ export default function StoryPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl font-normal mt-10 text-[#333333] mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal mt-10 text-[#333333] mb-4">
             Developer who understands the "why" behind the code
           </h1>
           <p className="text-xl text-[#757575] font-light mb-8">
