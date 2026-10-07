@@ -118,10 +118,26 @@ export default function Contact() {
                     <div className="grid lg:grid-cols-[0.75fr_1fr] gap-12 lg:gap-24">
                         <div>
                             <h2 className="text-4xl sm:text-5xl font-semibold text-[#333333] mb-4">
-                                Send me an email
+                                Let&rsquo;s talk
                             </h2>
                             <p className="text-[#757575] font-light leading-relaxed">
                                 Tell me what you are working on and I will get back to you.
+                            </p>
+
+                            <div className="mt-8 flex items-center gap-3">
+                                <span className="relative flex h-2.5 w-2.5 shrink-0">
+                                    <motion.span
+                                        aria-hidden="true"
+                                        className="absolute inline-flex h-full w-full rounded-full bg-[#4C8C5A]"
+                                        animate={{ scale: [1, 2.6], opacity: [0.45, 0] }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+                                    />
+                                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#4C8C5A]" />
+                                </span>
+                                <span className="text-sm text-[#333333]">Open to new opportunities</span>
+                            </div>
+                            <p className="mt-2 ml-[22px] text-sm text-[#999999] font-light">
+                                Usually replies within a day
                             </p>
                         </div>
 

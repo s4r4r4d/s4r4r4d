@@ -92,7 +92,7 @@ export default function LatestWork() {
       id: 1,
       title: 'Enterprise Process Automation',
       description:
-        'Software robots that run business processes end to end for some of the largest companies in Slovenia, Triglav and Petrol among them — inside SAP and the custom applications each has built for itself over the years. Most of the work happens before any code: mapping how a process actually runs, then deciding what to automate and what should stay with people. Built in Power Automate Desktop where there is no API, and in workflow tools where there is one.',
+        'Software robots that run business processes end to end for some of the largest companies in Slovenia, Triglav and Petrol among them. So far they have removed 100+ manual steps and over 100 hours of repetitive work, and processed 100+ documents in production. They run on daily and weekly schedules, unattended and overnight, and I keep them healthy once they are live. Built in Power Automate Desktop against SAP and the custom applications each client has built for itself — systems with no API, where the interface is the only way in. Most of the work happens before any code: mapping how the process really runs, and deciding what to automate and what stays with people.',
       stack: ['Power Automate Desktop', 'SAP', 'Power Platform', 'n8n', 'RPA'],
       thumb: (
         <Frame>
@@ -117,9 +117,9 @@ export default function LatestWork() {
     },
     {
       id: 2,
-      title: 'Job Market Agent',
+      title: 'Scheduled Research Agent',
       description:
-        'An autonomous agent that browses job boards every night, reads a profile of what I am looking for, and reports every role as what I already have, what I am missing, and what would close the gap. It runs on an Ubuntu VM as a systemd service on a cron schedule, drives a real headless browser, and delivers to Discord.',
+        'An agent that takes over a task I used to do by hand every evening. On a nightly cron schedule it drives a headless browser across sites that publish nothing through an API, reads what has changed since the last run, scores it against criteria held in a file rather than in the prompt, and posts a short ranked summary to Discord. It runs unattended as a systemd service on an Ubuntu VM, and reports a failed run rather than returning an unverified result.',
       stack: ['AI agents', 'Linux VM', 'systemd + cron', 'Tailscale', 'headless Chrome', 'Discord'],
       thumb: (
         <Frame>
@@ -133,10 +133,10 @@ export default function LatestWork() {
           <Box n={3} i={1} r={1} t="mojedelo" />
           <Box n={3} i={2} r={1} t="slo-tech" />
           <Join from={[cx(3, 0), cx(3, 1), cx(3, 2)]} r={1} to={MID} />
-          <Box n={2} i={0} r={2} t="the agent" s="reads each listing" lead />
+          <Box n={2} i={0} r={2} t="the agent" s="reads and scores each item" lead />
           <Box n={2} i={1} r={2} t="my profile" s="a file, not a prompt" />
           <Join from={[cx(2, 0), cx(2, 1)]} r={2} to={MID} />
-          <Box n={1} i={0} r={3} t="HAVE · MISSING · GAP · TO DO" s="per role, with the gap named" />
+          <Box n={1} i={0} r={3} t="ranked summary" s="only what changed since last run" />
           <Join from={[MID]} r={3} to={MID} />
           <Bar t="delivered to Discord · reports failure rather than guessing" />
         </Frame>
@@ -144,7 +144,7 @@ export default function LatestWork() {
     },
     {
       id: 3,
-      title: 'NoticeAI',
+      title: 'Semantic Search Platform',
       description:
         'Scrapes EU and Slovenian tender portals, translates every notice to English, and embeds it so you can search by meaning rather than by keyword — a search for road maintenance also returns a notice about resurfacing works, which shares none of those words. I built the frontend: browsing by country or by EU procurement code, with the active filter kept in the URL so a filtered view can be shared, and infinite scroll over the paginated endpoint I added to the API. Postgres with pgvector ranks what comes back by cosine distance.',
       stack: ['Next.js', 'TypeScript', 'FastAPI', 'pgvector', 'shadcn/ui'],
@@ -171,28 +171,28 @@ export default function LatestWork() {
     },
     {
       id: 4,
-      title: 'Rituals Skincare',
+      title: 'Storefront & Design System',
       description:
-        'A skincare brand site built on a small design system rather than page by page: one colour palette, one type scale, and a set of components reused everywhere. Designed in Figma and built in Next.js and Tailwind, so the look stays consistent as pages get added.',
-      stack: ['Figma', 'Next.js', 'Tailwind', 'design system'],
+        'A complete storefront journey for a consumer brand \u2014 browsing, filtering, cart and checkout \u2014 built on a design system rather than page by page: one colour palette, one type scale, and a component set reused across every view. Built in Vue.js and TypeScript, designed in Figma, so the look holds as the catalogue and pages grow.',
+      stack: ['Vue.js', 'TypeScript', 'Figma', 'design system', 'e-commerce'],
       thumb: (
         <Frame>
           <Lane r={0} t="DIRECTION" />
           <Lane r={1} t="SYSTEM" />
           <Lane r={2} t="BUILD" />
           <Lane r={3} t="PAGES" />
-          <Box n={1} i={0} r={0} t="brand direction" s="what it should feel like" lead />
+          <Box n={1} i={0} r={0} t="brand direction" s="what the storefront should feel like" lead />
           <Fan from={MID} r={0} to={[cx(3, 0), cx(3, 1), cx(3, 2)]} />
           <Box n={3} i={0} r={1} t="colour" />
           <Box n={3} i={1} r={1} t="type" />
           <Box n={3} i={2} r={1} t="components" />
           <Join from={[cx(3, 0), cx(3, 1), cx(3, 2)]} r={1} to={MID} />
           <Box n={2} i={0} r={2} t="Figma" s="designed once" />
-          <Box n={2} i={1} r={2} t="Next.js + Tailwind" s="built once" />
+          <Box n={2} i={1} r={2} t="Vue.js + TypeScript" s="built once" />
           <Join from={[cx(2, 0), cx(2, 1)]} r={2} to={MID} />
-          <Box n={1} i={0} r={3} t="home · product · story" s="assembled from the same parts" />
+          <Box n={1} i={0} r={3} t="browse · product · cart · checkout" s="assembled from the same parts" />
           <Join from={[MID]} r={3} to={MID} />
-          <Bar t="one look, however many pages get added" />
+          <Bar t="one look, however many products and pages get added" />
         </Frame>
       ),
     },

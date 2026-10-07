@@ -19,7 +19,7 @@ export default function JobAgent() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl font-normal text-[#333333] leading-tight mb-6">
-              An agent that reads the job market every night
+              A scheduled agent that replaces an evening of manual work
             </h1>
             <div className="relative mb-8">
               <div className="w-full h-px bg-[#dddddd]" />
@@ -29,10 +29,10 @@ export default function JobAgent() {
               </div>
             </div>
             <p className="text-[#333333] text-lg font-light leading-relaxed max-w-2xl">
-              A personal project, and the one I learned the most from. An autonomous agent
-              running on a schedule on my own server: it browses job boards, reads a profile
-              of what I am looking for, and tells me which roles are worth my time and what
-              I am missing for the ones that are not.
+              A personal project, and the one I learned the most from. It replaces a task I
+              used to do by hand every evening: an agent on my own server that drives a browser
+              across sites with no API, reads what has changed since the last run, scores it
+              against criteria held in a file, and sends back only what is worth reading.
             </p>
           </motion.div>
         </div>
@@ -50,18 +50,18 @@ export default function JobAgent() {
             </div>
             <div className="p-6 font-mono text-sm leading-relaxed">
               <p className="text-[#9E3B37]">20:00 &mdash; scheduled run</p>
-              <p className="text-[#666666] mt-3">browsing 3 boards &middot; reading profile</p>
+              <p className="text-[#666666] mt-3">3 sources &middot; headless browser &middot; criteria loaded</p>
               <p className="text-[#333333] mt-4">
-                <span className="text-[#999999]">HAVE</span> &nbsp;the requirements I already meet
+                <span className="text-[#999999]">FETCHED</span> &nbsp;42 items
               </p>
               <p className="text-[#333333] mt-1">
-                <span className="text-[#999999]">MISSING</span> &nbsp;the ones I do not
+                <span className="text-[#999999]">NEW</span> &nbsp;11 since last run
               </p>
               <p className="text-[#333333] mt-1">
-                <span className="text-[#999999]">GAP</span> &nbsp;how far off the role actually is
+                <span className="text-[#999999]">SCORED</span> &nbsp;against criteria file
               </p>
               <p className="text-[#333333] mt-1">
-                <span className="text-[#999999]">TO&nbsp;DO</span> &nbsp;what would close it
+                <span className="text-[#999999]">SENT</span> &nbsp;top 4 to Discord
               </p>
             </div>
           </div>
@@ -96,8 +96,8 @@ export default function JobAgent() {
                 p: 'It drives headless Chrome against the actual boards, because the listings that matter are not in any API and are rendered client side.',
               },
               {
-                h: 'A profile it reads each run',
-                p: 'What I am looking for lives in a file the agent reads every time, not in the prompt. Changing my criteria means editing one file, not rewriting the agent.',
+                h: 'Criteria in a file, not a prompt',
+                p: 'The matching rules live in a file the agent reads on every run. Changing what it looks for means editing one file, not rewriting the agent or redeploying it.',
               },
               {
                 h: 'Delivered where I already am',
