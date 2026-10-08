@@ -21,11 +21,13 @@ export default function Footer() {
         </div>
 <div className="flex relative justify-center group">
   <button
+    type="button"
+    aria-label="Back to top"
     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     className="absolute bottom-25"
   >
     <div className="w-32 h-16 border-t border-gray-200 rounded-t-full flex items-center bg-[#f5f5f5] justify-center cursor-pointer  group-hover:translate-y-1 transition-all duration-300">
-   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-gray-600 size-6">
+   <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-gray-600 size-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
 </svg>
     </div>

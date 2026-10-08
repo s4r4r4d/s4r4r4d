@@ -253,10 +253,12 @@ export default function Rituals() {
                 className="w-full h-auto rounded-lg"
               />
               <button
+                type="button"
+                aria-label="Close image"
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-10 right-0 text-white text-2xl font-light hover:text-gray-300"
               >
-                ✕
+                <span aria-hidden="true">&#10005;</span>
               </button>
             </motion.div>
           </motion.div>
